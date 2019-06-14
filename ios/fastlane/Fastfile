@@ -1,0 +1,55 @@
+fastlane_version "2.57.2"
+
+default_platform :ios
+
+platform :ios do
+	before_all do |lane|
+	  if lane == :release or lane == :beta
+#		  ensure_git_branch
+#		  ensure_git_status_clean
+#		  git_pull
+	    ENV["ENV"] = 'production'
+	  else
+	    ENV["ENV"] = 'development'
+	  end
+	end
+
+  desc "チーム向け"
+  desc "iOSアプリのipa作成＆DeployGateへの配布"
+  lane :ibet do
+    gym(
+      scheme: "PUA",
+      configuration: "Release",
+      project: "PUA.xcodeproj",
+      codesigning_identity: "iPhone Distribution: Nomura Research Institute, Ltd.",
+      export_options: {
+          method: "ad-hoc",
+          provisioningProfiles: {
+            "net.arumon.pua.app" => "ArumonPua2019",
+          }
+      },
+      export_method: "enterprise",
+      output_name: "PUA.ipa",
+      output_directory: ".build",
+      silent: true,
+      clean: true
+    )
+
+    deploygate(
+      api_token: '328db2f94e61a9eabe7df8c8cb532763e8a57890',
+      user: 'a-umakatsu',
+      message: "Build from Fastlane #{lane_context[SharedValues::BUILD_NUMBER]}",
+    )
+  end
+
+  after_all do |lane|
+		#
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end
