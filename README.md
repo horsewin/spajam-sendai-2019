@@ -1,7 +1,19 @@
 # Spajam-sendai-2019
 
 ## Library
+### ライブラリインストール  
+1. 下記コマンドでインストールを行う 
 ```
+$ brew install node watchman
+$ npm install -g npm@6.4.1
+$ npm install -g yarn@1.12.3 react-native-cli@2.0.1
+```
+
+1. XcodeをAppStoreよりインストールする
+1. Android Studioをインストールする
+1. 上記手順が完了した後、ライブラリバージョンを下記コマンドで確認する。
+```
+$ react-native info
   React Native Environment Info:
     System:
       OS: macOS 10.14.5
