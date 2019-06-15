@@ -54,6 +54,7 @@ buck-out/
 ios/deploygate_error.txt
 ios/dgdeploy.log
 ios/Index/DataStore/
+ios/.build
 
 # Bundle artifact
 *.jsbundle

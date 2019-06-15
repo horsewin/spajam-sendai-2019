@@ -14,9 +14,7 @@ platform :ios do
 	  end
 	end
 
-  desc "チーム向け"
-  desc "iOSアプリのipa作成＆DeployGateへの配布"
-  lane :ibet do
+  lane :pua do
     gym(
       scheme: "PUA",
       configuration: "Release",
@@ -37,7 +35,7 @@ platform :ios do
 
     deploygate(
       api_token: '328db2f94e61a9eabe7df8c8cb532763e8a57890',
-      user: 'a-umakatsu',
+      user: 'spajam-sendai-2019',
       message: "Build from Fastlane #{lane_context[SharedValues::BUILD_NUMBER]}",
     )
   end
