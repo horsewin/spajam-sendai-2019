@@ -39,3 +39,8 @@ $ react-native info
       react-native: 0.59.9 => 0.59.9 
 
 ```
+
+## Tips
+### アプリアイコン生成サイト
+- App Icon Resizer
+  - https://resizeappicon.com/
