@@ -1,19 +1,9 @@
 import React from "react";
-import {createAppContainer, createStackNavigator} from "react-navigation";
+import {createAppContainer} from "react-navigation";
 import {Provider} from "react-redux";
 import configureStore from "./lib/store";
-import HomeScreen from "./views/Home";
-import DetailScreen from "./views/Detail";
+import {AppNavigator} from "./navigators/app-navigator";
 
-const AppNavigator = createStackNavigator({
-    Home: {
-        screen: HomeScreen
-    },
-    Detail: {
-        screen: DetailScreen
-    }
-
-});
 
 export const store = configureStore();
 const Navigation = createAppContainer(AppNavigator);

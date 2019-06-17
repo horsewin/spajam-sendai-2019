@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -38,6 +37,12 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		2DC9670D604A4BDB92438E5B /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AB9590A756B4BD3A34FC203 /* libRNImagePicker.a */; };
+		499DEB49BE7D434BB9761D1E /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A77E4181F74B838DD18C9D /* libRCTImageResizer.a */; };
+		9162D86CECB44D8592187101 /* NotoSansCJKjp-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6015D410AEF74069901FF058 /* NotoSansCJKjp-Light.ttf */; };
+		69A3F0E2D7CB4CEE96D68DC8 /* NotoSansCJKjp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFCF61E03A074778AEE9CEEE /* NotoSansCJKjp-Medium.ttf */; };
+		C5BEB50EA08A441A97BFAE98 /* NotoSansCJKjp-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF01786DF74913B1889C27 /* NotoSansCJKjp-Regular.ttf */; };
+		AEB7ADEDD713437EB6794669 /* NotoSansCJKjp-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68728DF7D9B64864BE8AE6E1 /* NotoSansCJKjp-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -346,6 +351,14 @@
 		E6DF33CB4724492BAB7B73A1 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		AD235710DF2D4E4FB143EA49 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; name = "RNImagePicker.xcodeproj"; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		3AB9590A756B4BD3A34FC203 /* libRNImagePicker.a */ = {isa = PBXFileReference; name = "libRNImagePicker.a"; path = "libRNImagePicker.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		8A50DB7511144C9E895654E9 /* RCTImageResizer.xcodeproj */ = {isa = PBXFileReference; name = "RCTImageResizer.xcodeproj"; path = "../node_modules/react-native-image-resizer/ios/RCTImageResizer.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E8A77E4181F74B838DD18C9D /* libRCTImageResizer.a */ = {isa = PBXFileReference; name = "libRCTImageResizer.a"; path = "libRCTImageResizer.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		6015D410AEF74069901FF058 /* NotoSansCJKjp-Light.ttf */ = {isa = PBXFileReference; name = "NotoSansCJKjp-Light.ttf"; path = "../assets/fonts/NotoSansCJKjp-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DFCF61E03A074778AEE9CEEE /* NotoSansCJKjp-Medium.ttf */ = {isa = PBXFileReference; name = "NotoSansCJKjp-Medium.ttf"; path = "../assets/fonts/NotoSansCJKjp-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7FBF01786DF74913B1889C27 /* NotoSansCJKjp-Regular.ttf */ = {isa = PBXFileReference; name = "NotoSansCJKjp-Regular.ttf"; path = "../assets/fonts/NotoSansCJKjp-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		68728DF7D9B64864BE8AE6E1 /* NotoSansCJKjp-Thin.ttf */ = {isa = PBXFileReference; name = "NotoSansCJKjp-Thin.ttf"; path = "../assets/fonts/NotoSansCJKjp-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +380,8 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				5CC47DD916BD4EBBB2BDB557 /* libRNGestureHandler.a in Frameworks */,
+				2DC9670D604A4BDB92438E5B /* libRNImagePicker.a in Frameworks */,
+				499DEB49BE7D434BB9761D1E /* libRCTImageResizer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +565,8 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				CE2F762D46CD4F3DBB4D32C3 /* RNGestureHandler.xcodeproj */,
+				AD235710DF2D4E4FB143EA49 /* RNImagePicker.xcodeproj */,
+				8A50DB7511144C9E895654E9 /* RCTImageResizer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -572,6 +589,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				99C47B8122B3FDCA0019926C /* Recovered References */,
+				6932DA75915841BA89504F93 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -613,6 +631,18 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		6932DA75915841BA89504F93 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				6015D410AEF74069901FF058 /* NotoSansCJKjp-Light.ttf */,
+				DFCF61E03A074778AEE9CEEE /* NotoSansCJKjp-Medium.ttf */,
+				7FBF01786DF74913B1889C27 /* NotoSansCJKjp-Regular.ttf */,
+				68728DF7D9B64864BE8AE6E1 /* NotoSansCJKjp-Thin.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1029,6 +1059,10 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				9162D86CECB44D8592187101 /* NotoSansCJKjp-Light.ttf in Resources */,
+				69A3F0E2D7CB4CEE96D68DC8 /* NotoSansCJKjp-Medium.ttf in Resources */,
+				C5BEB50EA08A441A97BFAE98 /* NotoSansCJKjp-Regular.ttf in Resources */,
+				AEB7ADEDD713437EB6794669 /* NotoSansCJKjp-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1119,6 +1153,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1131,6 +1167,11 @@
 				PRODUCT_NAME = PUA;
 				PROVISIONING_PROFILE_SPECIFIER = ArumonPua2019;
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PUA\"",
+					"\"$(SRCROOT)/PUA\"",
+				);
 			};
 			name = Debug;
 		};
@@ -1145,6 +1186,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1157,6 +1200,11 @@
 				PRODUCT_NAME = PUA;
 				PROVISIONING_PROFILE_SPECIFIER = ArumonPua2019;
 				VERSIONING_SYSTEM = "apple-generic";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PUA\"",
+					"\"$(SRCROOT)/PUA\"",
+				);
 			};
 			name = Release;
 		};
@@ -1175,6 +1223,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1210,6 +1260,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

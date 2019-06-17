@@ -18,11 +18,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
+        fontFamily: "NotoSansCJKjp-Regular"
     },
     instructions: {
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
+        fontFamily: "NotoSansCJKjp-Thin"
     },
 });
 
@@ -36,6 +38,10 @@ export default class HomeScreen extends React.Component {
                 <Button
                     title="Go to Details"
                     onPress={() => this.props.navigation.navigate("Detail")}
+                />
+                <Button
+                    title="Go to Image"
+                    onPress={() => this.props.navigation.navigate("Image")}
                 />
             </View>
         );
