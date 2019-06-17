@@ -19,6 +19,7 @@
     "react-native-image-picker": "^0.28.1",
     "react-native-image-resizer": "^1.0.1",
     "react-native-keyboard-spacer": "^0.4.1",
+    "react-native-maps": "^0.24.2",
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",

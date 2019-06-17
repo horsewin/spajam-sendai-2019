@@ -43,6 +43,7 @@
 		69A3F0E2D7CB4CEE96D68DC8 /* NotoSansCJKjp-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFCF61E03A074778AEE9CEEE /* NotoSansCJKjp-Medium.ttf */; };
 		C5BEB50EA08A441A97BFAE98 /* NotoSansCJKjp-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF01786DF74913B1889C27 /* NotoSansCJKjp-Regular.ttf */; };
 		AEB7ADEDD713437EB6794669 /* NotoSansCJKjp-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68728DF7D9B64864BE8AE6E1 /* NotoSansCJKjp-Thin.ttf */; };
+		CB774F4108FC452B92D734D6 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B5F29EDB442E6B5DC4C0F /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +360,8 @@
 		DFCF61E03A074778AEE9CEEE /* NotoSansCJKjp-Medium.ttf */ = {isa = PBXFileReference; name = "NotoSansCJKjp-Medium.ttf"; path = "../assets/fonts/NotoSansCJKjp-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7FBF01786DF74913B1889C27 /* NotoSansCJKjp-Regular.ttf */ = {isa = PBXFileReference; name = "NotoSansCJKjp-Regular.ttf"; path = "../assets/fonts/NotoSansCJKjp-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		68728DF7D9B64864BE8AE6E1 /* NotoSansCJKjp-Thin.ttf */ = {isa = PBXFileReference; name = "NotoSansCJKjp-Thin.ttf"; path = "../assets/fonts/NotoSansCJKjp-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B264CB8B75924551966421E4 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; name = "AirMaps.xcodeproj"; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		D50B5F29EDB442E6B5DC4C0F /* libAirMaps.a */ = {isa = PBXFileReference; name = "libAirMaps.a"; path = "libAirMaps.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +385,7 @@
 				5CC47DD916BD4EBBB2BDB557 /* libRNGestureHandler.a in Frameworks */,
 				2DC9670D604A4BDB92438E5B /* libRNImagePicker.a in Frameworks */,
 				499DEB49BE7D434BB9761D1E /* libRCTImageResizer.a in Frameworks */,
+				CB774F4108FC452B92D734D6 /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +571,7 @@
 				CE2F762D46CD4F3DBB4D32C3 /* RNGestureHandler.xcodeproj */,
 				AD235710DF2D4E4FB143EA49 /* RNImagePicker.xcodeproj */,
 				8A50DB7511144C9E895654E9 /* RCTImageResizer.xcodeproj */,
+				B264CB8B75924551966421E4 /* AirMaps.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1155,6 +1160,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1169,6 +1175,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 				);
@@ -1188,6 +1195,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1202,6 +1210,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 				);
@@ -1225,6 +1234,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1262,6 +1272,7 @@
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
+					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

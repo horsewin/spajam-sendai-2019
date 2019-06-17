@@ -1,7 +1,7 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import * as counter from "./counter";
+import * as counter from './counter';
 
 export default combineReducers({
-    counter: counter.reducer
+  counter: counter.reducer,
 });

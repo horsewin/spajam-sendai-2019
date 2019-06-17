@@ -8,7 +8,7 @@ import {AppNavigator} from "./navigators/app-navigator";
 export const store = configureStore();
 const Navigation = createAppContainer(AppNavigator);
 
-export default class App extends React.Component<{}, {}> {
+export default class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
