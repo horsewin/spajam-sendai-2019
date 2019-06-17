@@ -1,18 +1,18 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import MapView from 'react-native-maps';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import MapView from "react-native-maps";
 
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     height: 400,
     width: 400,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent: "flex-end",
+    alignItems: "center"
   },
   map: {
-    ...StyleSheet.absoluteFillObject,
-  },
+    ...StyleSheet.absoluteFillObject
+  }
 });
 
 export default class MapScreen extends React.Component {
@@ -22,22 +22,22 @@ export default class MapScreen extends React.Component {
     this.state = {
       latitude: 37.78825,
       longitude: -122.4324,
-      error: null,
+      error: null
     };
   }
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
-      (position) => {
+      position => {
         console.log(position);
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-          error: null,
+          error: null
         });
       },
       error => this.setState({ error: error.message }),
-      { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
+      { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 }
     );
   }
 
@@ -51,7 +51,7 @@ export default class MapScreen extends React.Component {
             latitude,
             longitude,
             latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
+            longitudeDelta: 0.0121
           }}
         />
         {error}

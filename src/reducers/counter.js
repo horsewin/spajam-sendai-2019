@@ -1,7 +1,7 @@
-import * as types from '../actions/actionsTypes';
+import * as types from "../actions/actionsTypes";
 
 const initialState = {
-  counter: 0,
+  counter: 0
 };
 
 export function reducer(state = initialState, action) {

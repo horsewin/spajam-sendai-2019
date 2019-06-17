@@ -1,5 +1,5 @@
 export const counter = {
-  UPDATE: 'COUNTER-UPDATE',
+  UPDATE: "COUNTER-UPDATE"
 };
 //
 // const REQUEST = 'REQUEST';
