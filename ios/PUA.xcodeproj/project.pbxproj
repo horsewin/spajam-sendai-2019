@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -45,6 +44,7 @@
 		CB774F4108FC452B92D734D6 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D50B5F29EDB442E6B5DC4C0F /* libAirMaps.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		22AB150D07F44F13AD728BF6 /* libRNSensors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DFA51A33D32436D97A0AC68 /* libRNSensors.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +384,8 @@
 		E8A77E4181F74B838DD18C9D /* libRCTImageResizer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTImageResizer.a; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EBE1D7A6B8D3489785186166 /* RNSensors.xcodeproj */ = {isa = PBXFileReference; name = "RNSensors.xcodeproj"; path = "../node_modules/react-native-sensors/ios/RNSensors.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		7DFA51A33D32436D97A0AC68 /* libRNSensors.a */ = {isa = PBXFileReference; name = "libRNSensors.a"; path = "libRNSensors.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +410,7 @@
 				2DC9670D604A4BDB92438E5B /* libRNImagePicker.a in Frameworks */,
 				499DEB49BE7D434BB9761D1E /* libRCTImageResizer.a in Frameworks */,
 				CB774F4108FC452B92D734D6 /* libAirMaps.a in Frameworks */,
+				22AB150D07F44F13AD728BF6 /* libRNSensors.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +608,7 @@
 				AD235710DF2D4E4FB143EA49 /* RNImagePicker.xcodeproj */,
 				8A50DB7511144C9E895654E9 /* RCTImageResizer.xcodeproj */,
 				B264CB8B75924551966421E4 /* AirMaps.xcodeproj */,
+				EBE1D7A6B8D3489785186166 /* RNSensors.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1242,11 +1246,13 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios/**",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
@@ -1277,11 +1283,13 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios/**",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
@@ -1316,6 +1324,7 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios/**",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1354,6 +1363,7 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-sensors/ios/**",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

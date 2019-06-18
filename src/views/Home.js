@@ -45,6 +45,10 @@ export default class HomeScreen extends React.Component {
           onPress={() => navigation.navigate("Image")}
         />
         <Button title="Go to Map" onPress={() => navigation.navigate("Map")} />
+        <Button
+          title="Go to Sensor"
+          onPress={() => navigation.navigate("Sensor")}
+        />
       </View>
     );
   }
