@@ -2,7 +2,6 @@ import * as React from "react";
 import { Dropdown } from "react-native-material-dropdown";
 import {
   Button,
-  Text,
   Image,
   Modal,
   StyleSheet,
@@ -17,6 +16,7 @@ import axios from "axios";
 import { ModalPage } from "../components/modal";
 import { sleep } from "../utils/sleep";
 import config from "../constants/config";
+import { updateMyDishList as updateMyDishListAction } from "../actions/myDishes";
 
 const styles = StyleSheet.create({
   container: {
@@ -83,7 +83,7 @@ class ReviewScreen extends React.Component {
   };
 
   postReviewData = async () => {
-    const { navigation, restaurant } = this.props;
+    const { navigation, restaurant, updateMyDishList } = this.props;
     const { dish, udid } = this.state;
 
     await this.setState({
@@ -96,12 +96,19 @@ class ReviewScreen extends React.Component {
       udid,
       dish,
       restaurantName: restaurant.name,
-      scoville: 500
+      scoville: 1
     };
 
     // レビュー情報の登録
     await axios.post(url, body);
     await sleep(2000);
+
+    const getHistoryUrl =
+      "https://us-central1-spajam2019-sendai.cloudfunctions.net/getHistory?";
+    const param = `udid=${udid}`;
+    const myDishList = (await axios.get(getHistoryUrl + param)).data;
+    updateMyDishList(myDishList.dishes);
+
     await this.setState({
       modalVisible: false
     });
@@ -172,7 +179,11 @@ const mapStateToProps = state => ({
   dishes: state.dishes
 });
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  updateMyDishList: values => {
+    dispatch(updateMyDishListAction(values));
+  }
+});
 
 export default connect(
   mapStateToProps,

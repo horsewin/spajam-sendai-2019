@@ -150,6 +150,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateMyDishListAction(values));
   }
 });
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
