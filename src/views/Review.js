@@ -12,6 +12,7 @@ import ImagePicker from "react-native-image-picker";
 import { connect } from "react-redux";
 import DeviceInfo from "react-native-device-info";
 import { NavigationActions, StackActions } from "react-navigation";
+import axios from "axios";
 
 const styles = StyleSheet.create({
   container: {
@@ -76,8 +77,35 @@ class ReviewScreen extends React.Component {
     });
   };
 
+  postReviewData = async () => {
+    const { navigation, restaurant } = this.props;
+    const { dish, udid } = this.state;
+
+    const url =
+      "https://us-central1-spajam2019-sendai.cloudfunctions.net/updateHistory";
+    const body = {
+      udid,
+      dish,
+      restaurantName: restaurant.name,
+      scoville: 500
+    };
+
+    // レビュー情報の登録
+    await axios.post(url, body);
+
+    // ユーザ画面へ飛ばす
+    navigation.dispatch(
+      StackActions.reset({
+        actions: [NavigationActions.navigate({ routeName: "Map" })],
+        index: 0
+      })
+    );
+    navigation.navigate("User");
+  };
+
   render() {
-    const { dishes, navigation } = this.props;
+    const { dishes } = this.props;
+    const { dish } = this.state;
     let data = [];
     for (const dish of dishes) {
       data.push({ value: dish.name });
@@ -97,20 +125,18 @@ class ReviewScreen extends React.Component {
           {imageComponent}
         </TouchableOpacity>
         <View style={{ width: 200 }}>
-          <Dropdown label="食事名" data={data} />
+          <Dropdown
+            value={dish || "選択してください"}
+            onChangeText={dish => {
+              this.setState({
+                dish
+              });
+            }}
+            label="食事名"
+            data={data}
+          />
         </View>
-        <Button
-          title={"OK"}
-          onPress={() => {
-            navigation.dispatch(
-              StackActions.reset({
-                actions: [NavigationActions.navigate({ routeName: "Map" })],
-                index: 0
-              })
-            );
-            navigation.navigate("User");
-          }}
-        />
+        <Button title={"OK"} onPress={this.postReviewData} />
       </View>
     );
   }
