@@ -4,6 +4,7 @@ import {
   Button,
   Text,
   Image,
+  Modal,
   StyleSheet,
   TouchableOpacity,
   View
@@ -13,13 +14,16 @@ import { connect } from "react-redux";
 import DeviceInfo from "react-native-device-info";
 import { NavigationActions, StackActions } from "react-navigation";
 import axios from "axios";
+import { ModalPage } from "../components/modal";
+import { sleep } from "../utils/sleep";
+import config from "../constants/config";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF"
+    backgroundColor: config.color.keyColor
   },
   welcome: {
     fontSize: 20,
@@ -42,7 +46,8 @@ class ReviewScreen extends React.Component {
     this.state = {
       source: null,
       dish: null,
-      udid: null
+      udid: null,
+      modalVisible: false
     };
   }
 
@@ -81,6 +86,10 @@ class ReviewScreen extends React.Component {
     const { navigation, restaurant } = this.props;
     const { dish, udid } = this.state;
 
+    await this.setState({
+      modalVisible: true
+    });
+
     const url =
       "https://us-central1-spajam2019-sendai.cloudfunctions.net/updateHistory";
     const body = {
@@ -92,6 +101,10 @@ class ReviewScreen extends React.Component {
 
     // レビュー情報の登録
     await axios.post(url, body);
+    await sleep(2000);
+    await this.setState({
+      modalVisible: false
+    });
 
     // ユーザ画面へ飛ばす
     navigation.dispatch(
@@ -105,7 +118,7 @@ class ReviewScreen extends React.Component {
 
   render() {
     const { dishes } = this.props;
-    const { dish } = this.state;
+    const { dish, modalVisible } = this.state;
     let data = [];
     for (const dish of dishes) {
       data.push({ value: dish.name });
@@ -121,22 +134,34 @@ class ReviewScreen extends React.Component {
     );
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={this.uploadImage}>
-          {imageComponent}
-        </TouchableOpacity>
-        <View style={{ width: 200 }}>
-          <Dropdown
-            value={dish || "選択してください"}
-            onChangeText={dish => {
-              this.setState({
-                dish
-              });
-            }}
-            label="食事名"
-            data={data}
-          />
+        <View>
+          <TouchableOpacity onPress={this.uploadImage}>
+            {imageComponent}
+          </TouchableOpacity>
+          <View style={{ width: 200 }}>
+            <Dropdown
+              value={dish || "選択してください"}
+              onChangeText={dish => {
+                this.setState({
+                  dish
+                });
+              }}
+              label="食事名"
+              data={data}
+            />
+          </View>
+          <Button title={"OK"} onPress={this.postReviewData} />
         </View>
-        <Button title={"OK"} onPress={this.postReviewData} />
+        <Modal
+          animationType="fade"
+          transparent={false}
+          visible={modalVisible}
+          onRequestClose={() => {
+            console.log("");
+          }}
+        >
+          <ModalPage />
+        </Modal>
       </View>
     );
   }
