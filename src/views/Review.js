@@ -75,11 +75,7 @@ class ReviewScreen extends React.Component {
           {imageComponent}
         </TouchableOpacity>
         <View style={{ width: 200 }}>
-          <Dropdown
-            label="食事名"
-            data={data}
-            dropdownMargins={{ min: 20, max: 50 }}
-          />
+          <Dropdown label="食事名" data={data} />
         </View>
       </View>
     );

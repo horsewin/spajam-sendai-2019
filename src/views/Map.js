@@ -131,7 +131,9 @@ class MapScreen extends React.Component {
           onPress={async event => {
             this.setState({
               markerLatitude: event.nativeEvent.coordinate.latitude,
-              markerLongitude: event.nativeEvent.coordinate.longitude
+              markerLongitude: event.nativeEvent.coordinate.longitude,
+              latitude: event.nativeEvent.coordinate.latitude,
+              longitude: event.nativeEvent.coordinate.longitude
             });
 
             const data = (await axios.get(
