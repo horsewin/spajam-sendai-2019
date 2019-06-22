@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Dropdown } from "react-native-material-dropdown";
 import {
+  Text,
   Button,
   Image,
   Modal,
@@ -35,6 +36,12 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     resizeMode: "contain"
+  },
+  errorMessage: {
+    fontSize: 12,
+    color: "#FF0303",
+    fontFamily: "NotoSansCJKjp-Regular",
+    marginTop: 6
   }
 });
 
@@ -48,7 +55,8 @@ class ReviewScreen extends React.Component {
       source: null,
       dish: null,
       udid: null,
-      modalVisible: false
+      modalVisible: false,
+      error: false
     };
   }
 
@@ -87,6 +95,13 @@ class ReviewScreen extends React.Component {
     const { navigation, restaurant, updateMyDishList } = this.props;
     const { dish, udid } = this.state;
 
+    if (!dish) {
+      this.setState({
+        error: true
+      });
+      return;
+    }
+
     await this.setState({
       modalVisible: true
     });
@@ -124,7 +139,7 @@ class ReviewScreen extends React.Component {
 
   render() {
     const { dishes } = this.props;
-    const { dish, modalVisible } = this.state;
+    const { dish, modalVisible, error } = this.state;
     let data = [];
     for (const dish of dishes) {
       data.push({ value: dish.name });
@@ -149,12 +164,18 @@ class ReviewScreen extends React.Component {
               value={dish || "選択してください"}
               onChangeText={dish => {
                 this.setState({
+                  error: false,
                   dish
                 });
               }}
               label="食事名"
               data={data}
             />
+            {error ? (
+              <Text style={styles.errorMessage}>
+                商品を選択するか写真を撮影してください。
+              </Text>
+            ) : null}
           </View>
           <Button title={"OK"} onPress={this.postReviewData} />
         </View>
