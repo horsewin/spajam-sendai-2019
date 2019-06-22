@@ -1,7 +1,3 @@
-export const counter = {
-  UPDATE: "COUNTER-UPDATE"
-};
-
 export const restaurant = {
   UPDATE: "RESTAURANT-UPDATE"
 };
