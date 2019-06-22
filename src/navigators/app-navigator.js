@@ -1,9 +1,11 @@
 import { createBottomTabNavigator } from "react-navigation";
-// import React from "react";
+import React from "react";
 // import { StyleSheet } from "react-native";
 import { MainNavigator } from "./main-navigator";
 import { UserNavigator } from "./user-navigator";
 import config from "../constants/config";
+import Ionicons from "react-native-vector-icons/Ionicons";
+
 //
 // const styles = StyleSheet.create({
 //   navButton: {
@@ -48,6 +50,20 @@ const AppNavigator = createBottomTabNavigator(
     }
   },
   {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        let IconComponent = Ionicons;
+        let iconName;
+        if (routeName === "Main") {
+          // iconName = `ios-nutrition${focused ? "" : "-outline"}`;
+          iconName = `ios-nutrition`;
+        } else if (routeName === "User") {
+          iconName = `ios-contact`;
+        }
+        return <IconComponent name={iconName} size={25} color={tintColor} />;
+      }
+    }),
     tabBarOptions: {
       activeTintColor: config.color.primaryColor,
       tabStyle: {
