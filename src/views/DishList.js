@@ -1,19 +1,18 @@
 import {
   ActivityIndicator,
-  TouchableOpacity,
   FlatList,
   Image,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View
 } from "react-native";
 import React from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { sleep } from "../utils/sleep";
 import { updateDishList as updateDishListAction } from "../actions/dishes";
 import config from "../constants/config";
-import { setGetUrl, setUrl } from "../utils/api";
+import { setGetUrl } from "../utils/api";
 
 const styles = StyleSheet.create({
   container: {

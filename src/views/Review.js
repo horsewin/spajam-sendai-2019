@@ -1,11 +1,10 @@
 import * as React from "react";
 import { Dropdown } from "react-native-material-dropdown";
 import {
-  Text,
-  Button,
+  ActivityIndicator,
   Image,
-  Modal,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View
 } from "react-native";
@@ -14,12 +13,12 @@ import { connect } from "react-redux";
 import DeviceInfo from "react-native-device-info";
 import { NavigationActions, StackActions } from "react-navigation";
 import axios from "axios";
-import { ModalPage } from "../components/modal";
 import { sleep } from "../utils/sleep";
 import config from "../constants/config";
 import { updateMyDishList as updateMyDishListAction } from "../actions/myDishes";
 import { setGetUrl, setPostUrl } from "../utils/api";
 import { ScovilleButton } from "../components/scovilleButton";
+import Modal from "react-native-modal";
 
 const styles = StyleSheet.create({
   container: {
@@ -43,6 +42,18 @@ const styles = StyleSheet.create({
     color: "#FF0303",
     fontFamily: "NotoSansCJKjp-Regular",
     marginTop: 6
+  },
+  flexText: {
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  h2: {
+    color: config.color.fontColor,
+    fontSize: 20,
+    fontFamily: "NotoSansCJKjp-Regular"
+  },
+  marginBottom: {
+    marginBottom: 36
   }
 });
 
@@ -116,8 +127,8 @@ class ReviewScreen extends React.Component {
     };
 
     // レビュー情報の登録
-    await axios.post(url, body);
-    await sleep(500);
+    // await axios.post(url, body);
+    await sleep(1500);
 
     const param = `udid=${udid}`;
     const getHistoryUrl = setGetUrl("/getHistory", param);
@@ -180,15 +191,13 @@ class ReviewScreen extends React.Component {
           </View>
           <ScovilleButton text={"OK"} onPress={this.postReviewData} />
         </View>
-        <Modal
-          animationType="fade"
-          transparent={false}
-          visible={modalVisible}
-          onRequestClose={() => {
-            console.log("");
-          }}
-        >
-          <ModalPage />
+        <Modal isVisible={modalVisible}>
+          <View style={{ marginTop: 300, flex: 1 }}>
+            <View style={styles.flexText}>
+              <Text style={[styles.h2, styles.marginBottom]}>送信中です</Text>
+            </View>
+            <ActivityIndicator size="large" color="#F4A626" />
+          </View>
         </Modal>
       </View>
     );
