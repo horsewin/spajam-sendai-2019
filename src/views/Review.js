@@ -3,6 +3,7 @@ import { Dropdown } from "react-native-material-dropdown";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import ImagePicker from "react-native-image-picker";
 import { connect } from "react-redux";
+import DeviceInfo from "react-native-device-info";
 
 const styles = StyleSheet.create({
   container: {
@@ -31,8 +32,18 @@ class ReviewScreen extends React.Component {
     super(props, state);
     this.state = {
       source: null,
-      dish: null
+      dish: null,
+      udid: null
     };
+  }
+
+  async componentDidMount() {
+    const udid = DeviceInfo.getUniqueID();
+    this.setState({
+      udid
+    });
+
+    console.log(udid);
   }
 
   uploadImage = async () => {
