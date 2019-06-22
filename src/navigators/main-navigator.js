@@ -1,16 +1,15 @@
 import { createStackNavigator } from "react-navigation";
-import ImageScreen from "../views/Image";
 import MapScreen from "../views/Map";
 import DishListScreen from "../views/DishList";
 import { defaultHeader } from "../components/header";
 
 export const MainNavigator = createStackNavigator(
   {
-    Image: {
-      screen: ImageScreen
-    },
     Map: {
-      screen: MapScreen
+      screen: MapScreen,
+      navigationOptions: {
+        headerMode: "none"
+      }
     },
     DishList: {
       screen: DishListScreen,
@@ -21,7 +20,6 @@ export const MainNavigator = createStackNavigator(
   },
   {
     initialRouteName: "Map",
-    headerMode: "none",
     defaultNavigationOptions: defaultHeader
   }
 );

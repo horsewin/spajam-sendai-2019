@@ -11,12 +11,12 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { sleep } from "../utils/sleep";
 import { getDishList as getDishListAction } from "../actions/dishes";
+import config from "../constants/config";
 
 const styles = StyleSheet.create({
   container: {
-    height: 620,
-    paddingTop: 24,
-    paddingBottom: 24,
+    height: config.flatlistHeight,
+    paddingBottom: 12,
     paddingRight: 12,
     paddingLeft: 12
   },
@@ -31,6 +31,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     elevation: 0
   },
+  containerFlatListMarginBottom: {
+    marginBottom: 48
+  },
   restaurantImage: {
     flex: 1,
     width: 100,
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 12,
     paddingRight: 12,
-    paddingLeft: 12
+    paddingLeft: 1
   },
   restaurantNameTop: {
     fontSize: 16
@@ -59,8 +62,8 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    right: 30,
-    bottom: 30
+    right: config.floatingButtonMargin,
+    bottom: config.tabHeight - config.floatingButtonMargin
   },
   FloatingButtonStyle: {
     resizeMode: "contain",
@@ -113,7 +116,7 @@ class DishListScreen extends React.Component {
     const data = dishes ? (
       <FlatList
         keyExtractor={keyExtractor}
-        contentContainerStyle={styles.container}
+        style={styles.containerFlatListMarginBottom}
         data={dishes}
         renderItem={this.tokenListItem}
         // refreshControl={props.refreshControl}
@@ -123,20 +126,22 @@ class DishListScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        {data}
-        <TouchableOpacity
-          activeOpacity={0.7}
-          onPress={null}
-          style={styles.TouchableOpacityStyle}
-        >
-          <Image
-            source={{
-              uri:
-                "https://aboutreact.com/wp-content/uploads/2018/08/bc72de57b000a7037294b53d34c2cbd1.png"
-            }}
-            style={styles.FloatingButtonStyle}
-          />
-        </TouchableOpacity>
+        <View>{data}</View>
+        <View>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={null}
+            style={styles.TouchableOpacityStyle}
+          >
+            <Image
+              source={{
+                uri:
+                  "https://aboutreact.com/wp-content/uploads/2018/08/bc72de57b000a7037294b53d34c2cbd1.png"
+              }}
+              style={styles.FloatingButtonStyle}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
