@@ -17,6 +17,7 @@ import { ModalPage } from "../components/modal";
 import { sleep } from "../utils/sleep";
 import config from "../constants/config";
 import { updateMyDishList as updateMyDishListAction } from "../actions/myDishes";
+import { setGetUrl, setPostUrl } from "../utils/api";
 
 const styles = StyleSheet.create({
   container: {
@@ -90,8 +91,7 @@ class ReviewScreen extends React.Component {
       modalVisible: true
     });
 
-    const url =
-      "https://us-central1-spajam2019-sendai.cloudfunctions.net/updateHistory";
+    const url = setPostUrl("/updateHistory");
     const body = {
       udid,
       dish,
@@ -103,10 +103,9 @@ class ReviewScreen extends React.Component {
     await axios.post(url, body);
     await sleep(2000);
 
-    const getHistoryUrl =
-      "https://us-central1-spajam2019-sendai.cloudfunctions.net/getHistory?";
     const param = `udid=${udid}`;
-    const myDishList = (await axios.get(getHistoryUrl + param)).data;
+    const getHistoryUrl = setGetUrl("/getHistory", param);
+    const myDishList = (await axios.get(getHistoryUrl)).data;
     updateMyDishList(myDishList.dishes);
 
     await this.setState({

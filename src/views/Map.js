@@ -4,6 +4,7 @@ import MapView, { Marker } from "react-native-maps";
 import { connect } from "react-redux";
 import { restaurantSelect as restaurantSelectAction } from "../actions/restaurant";
 import axios from "axios";
+import { setGetUrl } from "../utils/api";
 
 const styles = StyleSheet.create({
   container: {
@@ -136,9 +137,8 @@ class MapScreen extends React.Component {
               longitude: event.nativeEvent.coordinate.longitude
             });
 
-            const data = (await axios.get(
-              "https://us-central1-spajam2019-sendai.cloudfunctions.net/getRestaurant"
-            )).data;
+            const url = setGetUrl("/getRestaurant");
+            const data = (await axios.get(url)).data;
 
             restaurantSelect({
               key: data.key,

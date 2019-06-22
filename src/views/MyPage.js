@@ -11,6 +11,7 @@ import DeviceInfo from "react-native-device-info";
 import axios from "axios";
 import { connect } from "react-redux";
 import { updateMyDishList as updateMyDishListAction } from "../actions/myDishes";
+import { setGetUrl } from "../utils/api";
 
 const styles = StyleSheet.create({
   container: {
@@ -70,16 +71,26 @@ const styles = StyleSheet.create({
 class MyPageScreen extends React.Component {
   constructor(props, state) {
     super(props, state);
+
+    this.state = {
+      myScoville: 0
+    };
   }
 
   async componentDidMount() {
     const { updateMyDishList } = this.props;
     const udid = DeviceInfo.getUniqueID();
-    const url =
-      "https://us-central1-spajam2019-sendai.cloudfunctions.net/getHistory?";
     const param = `udid=${udid}`;
-    const myDishList = (await axios.get(url + param)).data;
+    const getHistoryUrl = setGetUrl("/getHistory", param);
+    const myDishList = (await axios.get(getHistoryUrl)).data;
     updateMyDishList(myDishList.dishes);
+
+    const myScovilleUrl = setGetUrl("/getPersonalScoville", param);
+    const myScoville = (await axios.get(myScovilleUrl)).data.scoville;
+    console.log(myScoville);
+    this.setState({
+      myScoville
+    });
   }
 
   tokenListItem = ({ item }) => {
@@ -98,6 +109,7 @@ class MyPageScreen extends React.Component {
 
   render() {
     const { myDishes } = this.props;
+    const { myScoville } = this.state;
     const keyExtractor = (item, id) => id.toString();
 
     const data = myDishes ? (
@@ -131,7 +143,8 @@ class MyPageScreen extends React.Component {
           <View style={styles.restaurantNameGroup}>
             <Text style={styles.restaurantNameTop}>PUAさん</Text>
             <View style={styles.restaurantNameBottom}>
-              <Text>Scovilleレベル </Text>
+              <Text>Scovilleレベル</Text>
+              <Text>{myScoville}</Text>
             </View>
           </View>
         </View>

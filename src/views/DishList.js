@@ -13,6 +13,7 @@ import axios from "axios";
 import { sleep } from "../utils/sleep";
 import { updateDishList as updateDishListAction } from "../actions/dishes";
 import config from "../constants/config";
+import { setGetUrl, setUrl } from "../utils/api";
 
 const styles = StyleSheet.create({
   container: {
@@ -90,10 +91,9 @@ class DishListScreen extends React.Component {
 
   async componentDidMount() {
     const { restaurant, updateDishList } = this.props;
-    const url =
-      "https://us-central1-spajam2019-sendai.cloudfunctions.net/getMenu?";
     const param = `key=${restaurant.key}`;
-    const dishList = (await axios.get(url + param)).data;
+    const url = setGetUrl("/getMenu", param);
+    const dishList = (await axios.get(url)).data;
 
     // ストアから料理一覧を取得
     updateDishList(dishList);
