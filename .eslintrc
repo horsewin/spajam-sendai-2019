@@ -1,6 +1,5 @@
 {
     "env": {
-        "browser": true,
         "es6": true
     },
     "extends": [
@@ -27,6 +26,9 @@
             {
                 "singleQuote": false
             }
-        ]
+        ],
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".js", ".jsx"]
+        }]
     }
 }

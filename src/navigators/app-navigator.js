@@ -1,24 +1,19 @@
-import { createStackNavigator } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation";
 import HomeScreen from "../views/Home";
-import DetailScreen from "../views/Detail";
-import ImageScreen from "../views/Image";
-import MapScreen from "../views/Map";
-import SensorScreen from "../views/Sensor";
+import { MainNavigator } from "./main-navigator";
 
-export const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen
+const AppNavigator = createBottomTabNavigator(
+  {
+    Main: {
+      screen: MainNavigator
+    },
+    User: {
+      screen: HomeScreen
+    }
   },
-  Detail: {
-    screen: DetailScreen
-  },
-  Image: {
-    screen: ImageScreen
-  },
-  Map: {
-    screen: MapScreen
-  },
-  Sensor: {
-    screen: SensorScreen
+  {
+    tabBarPosition: "bottom",
+    lazy: false
   }
-});
+);
+export default AppNavigator;

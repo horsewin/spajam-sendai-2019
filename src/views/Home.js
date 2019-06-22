@@ -1,4 +1,4 @@
-import { Platform, StyleSheet, Text, View, Button } from "react-native";
+import { Button, Platform, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 const instructions = Platform.select({

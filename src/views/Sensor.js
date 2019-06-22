@@ -39,11 +39,11 @@ export default class SensorScreen extends React.Component {
   }
 
   componentDidMount() {
-    setUpdateIntervalForType(SensorTypes.accelerometer, 100); // defaults to 100ms
+    setUpdateIntervalForType(SensorTypes.accelerometer, 3000); // defaults to 100ms
     const subscription = accelerometer.subscribe(
       speed => {
         this.setState({
-          speed: `${speed.x} ${speed.y} ${speed.z}`
+          speed: `${speed.x}\n${speed.y}\n${speed.z}\n`
         });
       },
       error => {
@@ -65,7 +65,7 @@ export default class SensorScreen extends React.Component {
 
   render() {
     const { error, speed } = this.state;
-    const component = error || speed;
+    const component = error || `加速度センサ\n${speed}`;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Hey, PUA sensor!</Text>
