@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { restaurantSelect as restaurantSelectAction } from "../actions/restaurant";
 import axios from "axios";
 import { setGetUrl } from "../utils/api";
+import { ScovilleButton } from "../components/scovilleButton";
 
 const styles = StyleSheet.create({
   container: {
@@ -95,13 +96,13 @@ class MapScreen extends React.Component {
           <Text style={styles.restaurantNameTop}>{restaurant.name}</Text>
           <View style={styles.restaurantNameBottom}>
             <Text>{restaurant.averageScoville.toString()}</Text>
-            <Button
-              title="OK"
-              onPress={() =>
-                navigation.navigate("DishList", { name: restaurant.name })
-              }
-            />
           </View>
+          <ScovilleButton
+            text="GO"
+            onPress={() =>
+              navigation.navigate("DishList", { name: restaurant.name })
+            }
+          />
         </View>
       </View>
     );
