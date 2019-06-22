@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component {
         />
         <Button
           title="Go to Image"
-          onPress={() => navigation.navigate("Image")}
+          onPress={() => navigation.navigate("Review.js")}
         />
         <Button title="Go to Map" onPress={() => navigation.navigate("Map")} />
         <Button

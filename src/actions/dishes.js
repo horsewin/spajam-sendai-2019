@@ -1,6 +1,6 @@
 import * as types from "./actionsTypes";
 
-export const getDishList = value => {
+export const updateDishList = value => {
   return dispatch =>
     dispatch({
       type: types.dishes.UPDATE,

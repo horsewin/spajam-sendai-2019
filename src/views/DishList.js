@@ -10,7 +10,7 @@ import React from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { sleep } from "../utils/sleep";
-import { getDishList as getDishListAction } from "../actions/dishes";
+import { updateDishList as updateDishListAction } from "../actions/dishes";
 import config from "../constants/config";
 
 const styles = StyleSheet.create({
@@ -110,7 +110,7 @@ class DishListScreen extends React.Component {
    * @return {*}
    */
   render() {
-    const { dishes } = this.props;
+    const { dishes, navigation } = this.props;
     const keyExtractor = (item, id) => id.toString();
 
     const data = dishes ? (
@@ -130,7 +130,9 @@ class DishListScreen extends React.Component {
         <View>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={null}
+            onPress={() => {
+              navigation.navigate("Review");
+            }}
             style={styles.TouchableOpacityStyle}
           >
             <Image
@@ -154,7 +156,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getDishList: values => {
-    dispatch(getDishListAction(values));
+    dispatch(updateDishListAction(values));
   }
 });
 
