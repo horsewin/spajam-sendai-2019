@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "react-navigation";
 // import React from "react";
 // import { StyleSheet } from "react-native";
-import HomeScreen from "../views/Home";
 import { MainNavigator } from "./main-navigator";
+import { UserNavigator } from "./user-navigator";
 //
 // const styles = StyleSheet.create({
 //   navButton: {
@@ -34,11 +34,16 @@ import { MainNavigator } from "./main-navigator";
 const AppNavigator = createBottomTabNavigator(
   {
     Main: {
-      screen: MainNavigator
+      screen: MainNavigator,
+      navigationOptions: {
+        title: `メイン`
+      }
     },
     User: {
-      screen: HomeScreen,
-      navigationOptions: {}
+      screen: UserNavigator,
+      navigationOptions: {
+        title: `マイページ`
+      }
     }
   },
   {

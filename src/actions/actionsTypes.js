@@ -6,6 +6,10 @@ export const dishes = {
   UPDATE: "DISHES-UPDATE"
 };
 
+export const myDishes = {
+  UPDATE: "MYDISHES-UPDATE"
+};
+
 //
 // const REQUEST = 'REQUEST';
 // const SUCCESS = 'SUCCESS';

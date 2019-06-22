@@ -1,9 +1,17 @@
 import * as React from "react";
 import { Dropdown } from "react-native-material-dropdown";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  Button,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from "react-native";
 import ImagePicker from "react-native-image-picker";
 import { connect } from "react-redux";
 import DeviceInfo from "react-native-device-info";
+import { NavigationActions, StackActions } from "react-navigation";
 
 const styles = StyleSheet.create({
   container: {
@@ -69,7 +77,7 @@ class ReviewScreen extends React.Component {
   };
 
   render() {
-    const { dishes } = this.props;
+    const { dishes, navigation } = this.props;
     let data = [];
     for (const dish of dishes) {
       data.push({ value: dish.name });
@@ -91,6 +99,18 @@ class ReviewScreen extends React.Component {
         <View style={{ width: 200 }}>
           <Dropdown label="食事名" data={data} />
         </View>
+        <Button
+          title={"OK"}
+          onPress={() => {
+            navigation.dispatch(
+              StackActions.reset({
+                actions: [NavigationActions.navigate({ routeName: "Map" })],
+                index: 0
+              })
+            );
+            navigation.navigate("User");
+          }}
+        />
       </View>
     );
   }
