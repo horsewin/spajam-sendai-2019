@@ -42,12 +42,15 @@ class ReviewScreen extends React.Component {
     this.setState({
       udid
     });
-
-    console.log(udid);
   }
 
   uploadImage = async () => {
-    const options = {};
+    const options = {
+      title: "",
+      takePhotoButtonTitle: "写真をとる",
+      chooseFromLibraryButtonTitle: "フォトライブラリ",
+      cancelButtonTitle: "キャンセル"
+    };
     ImagePicker.showImagePicker(options, async response => {
       console.log("image ", response);
       if (response.didCancel) {

@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   TouchableOpacity,
   FlatList,
   Image,
@@ -69,6 +70,16 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     width: 64,
     height: 64
+  },
+  //
+  spinnerContainer: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
   }
 });
 
@@ -78,17 +89,14 @@ class DishListScreen extends React.Component {
   }
 
   async componentDidMount() {
-    const { restaurant, getDishList } = this.props;
+    const { restaurant, updateDishList } = this.props;
     const url =
       "https://us-central1-spajam2019-sendai.cloudfunctions.net/getMenu?";
     const param = `key=${restaurant.key}`;
     const dishList = (await axios.get(url + param)).data;
 
-    getDishList(dishList);
-
-    this.setState({
-      dishList
-    });
+    // ストアから料理一覧を取得
+    updateDishList(dishList);
   }
 
   tokenListItem = ({ item }) => {
@@ -114,19 +122,25 @@ class DishListScreen extends React.Component {
     const keyExtractor = (item, id) => id.toString();
 
     const data = dishes ? (
-      <FlatList
-        keyExtractor={keyExtractor}
-        style={styles.containerFlatListMarginBottom}
-        data={dishes}
-        renderItem={this.tokenListItem}
-        // refreshControl={props.refreshControl}
-        // onEndReached={props.onEndReachedAction}
-      />
-    ) : null;
+      <View>
+        <FlatList
+          keyExtractor={keyExtractor}
+          style={styles.containerFlatListMarginBottom}
+          data={dishes}
+          renderItem={this.tokenListItem}
+          // refreshControl={props.refreshControl}
+          // onEndReached={props.onEndReachedAction}
+        />
+      </View>
+    ) : (
+      <View style={[styles.container, styles.horizontal]}>
+        <ActivityIndicator size="large" color="#FFA500" />
+      </View>
+    );
 
     return (
       <View style={styles.container}>
-        <View>{data}</View>
+        {data}
         <View>
           <TouchableOpacity
             activeOpacity={0.7}
@@ -155,7 +169,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getDishList: values => {
+  updateDishList: values => {
     dispatch(updateDishListAction(values));
   }
 });

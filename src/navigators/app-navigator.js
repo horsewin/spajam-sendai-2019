@@ -8,7 +8,8 @@ const AppNavigator = createBottomTabNavigator(
       screen: MainNavigator
     },
     User: {
-      screen: HomeScreen
+      screen: HomeScreen,
+      navigationOptions: {}
     }
   },
   {

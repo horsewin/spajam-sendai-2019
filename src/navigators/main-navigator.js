@@ -9,6 +9,7 @@ export const MainNavigator = createStackNavigator(
     Map: {
       screen: MapScreen,
       navigationOptions: {
+        header: null,
         headerMode: "none"
       }
     },
