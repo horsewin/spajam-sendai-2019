@@ -19,6 +19,7 @@ import { sleep } from "../utils/sleep";
 import config from "../constants/config";
 import { updateMyDishList as updateMyDishListAction } from "../actions/myDishes";
 import { setGetUrl, setPostUrl } from "../utils/api";
+import { ScovilleButton } from "../components/scovilleButton";
 
 const styles = StyleSheet.create({
   container: {
@@ -116,7 +117,7 @@ class ReviewScreen extends React.Component {
 
     // レビュー情報の登録
     await axios.post(url, body);
-    await sleep(2000);
+    await sleep(500);
 
     const param = `udid=${udid}`;
     const getHistoryUrl = setGetUrl("/getHistory", param);
@@ -177,7 +178,7 @@ class ReviewScreen extends React.Component {
               </Text>
             ) : null}
           </View>
-          <Button title={"OK"} onPress={this.postReviewData} />
+          <ScovilleButton text={"OK"} onPress={this.postReviewData} />
         </View>
         <Modal
           animationType="fade"
