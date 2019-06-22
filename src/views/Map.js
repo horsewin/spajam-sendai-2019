@@ -4,8 +4,9 @@ import MapView, { Marker } from "react-native-maps";
 import { connect } from "react-redux";
 import { restaurantSelect as restaurantSelectAction } from "../actions/restaurant";
 import axios from "axios";
-import { setGetUrl } from "../utils/api";
+import { setGetUrl, setPostUrl } from "../utils/api";
 import { ScovilleButton } from "../components/scovilleButton";
+import DeviceInfo from "react-native-device-info";
 
 const styles = StyleSheet.create({
   container: {
@@ -124,6 +125,12 @@ class MapScreen extends React.Component {
       <View style={styles.container}>
         <MapView
           style={styles.map}
+          // initialRegion={{
+          //   latitude: 38.271965,
+          //   longitude: 140.871116,
+          //   latitudeDelta: 0.015,
+          //   longitudeDelta: 0.0121
+          // }}
           region={{
             latitude,
             longitude,
@@ -131,16 +138,29 @@ class MapScreen extends React.Component {
             longitudeDelta: 0.0121
           }}
           onPress={async event => {
+            const isSimulator = DeviceInfo.isEmulator();
+            const latitude = isSimulator
+              ? 38.271965
+              : event.nativeEvent.coordinate.latitude;
+            const longitude = isSimulator
+              ? 140.871116
+              : event.nativeEvent.coordinate.longitude;
             this.setState({
-              markerLatitude: event.nativeEvent.coordinate.latitude,
-              markerLongitude: event.nativeEvent.coordinate.longitude,
-              latitude: event.nativeEvent.coordinate.latitude,
-              longitude: event.nativeEvent.coordinate.longitude
+              markerLatitude: latitude,
+              markerLongitude: longitude,
+              latitude,
+              longitude
             });
 
-            const url = setGetUrl("/getRestaurant");
-            const data = (await axios.get(url)).data;
+            // const url = setGetUrl("/getRestaurant");
+            const url = setPostUrl("/getNearestRestaurant");
+            const param = {
+              latitude,
+              longitude
+            };
+            const data = (await axios.post(url, param)).data;
 
+            console.log(data);
             restaurantSelect({
               key: data.key,
               name: data.name,
