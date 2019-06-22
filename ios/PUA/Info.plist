@@ -46,7 +46,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>App is using Camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Your message to user when the microphone is accessed for the first time</string>
 	<key>NSMotionUsageDescription</key>
@@ -63,28 +63,13 @@
 	<string>Licenses</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Entypo.ttf</string>
-		<string>EvilIcons.ttf</string>
-		<string>FontAwesome.ttf</string>
-		<string>Foundation.ttf</string>
-		<string>Ionicons.ttf</string>
-		<string>MaterialIcons.ttf</string>
-		<string>Octicons.ttf</string>
 		<string>Roboto_medium.ttf</string>
 		<string>Roboto.ttf</string>
 		<string>rubicon-icon-font.ttf</string>
-		<string>SimpleLineIcons.ttf</string>
-		<string>Zocial.ttf</string>
 		<string>NotoSansCJKjp-Regular.ttf</string>
 		<string>NotoSansCJKjp-Light.ttf</string>
 		<string>NotoSansCJKjp-Medium.ttf</string>
 		<string>NotoSansCJKjp-Thin.ttf</string>
-		<string>AntDesign.ttf</string>
-		<string>Feather.ttf</string>
-		<string>FontAwesome5_Brands.ttf</string>
-		<string>FontAwesome5_Regular.ttf</string>
-		<string>FontAwesome5_Solid.ttf</string>
-		<string>MaterialCommunityIcons.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

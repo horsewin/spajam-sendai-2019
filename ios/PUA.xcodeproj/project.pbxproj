@@ -468,6 +468,7 @@
 				AD3051745ABA473B97E31F54 /* libRNGestureHandler-tvOS.a in Frameworks */,
 				0B0DCF342D024A54BE0BB016 /* libRNDeviceInfo-tvOS.a in Frameworks */,
 				194BE7900BF146FFA5FC743C /* libRNSVG-tvOS.a in Frameworks */,
+				F11D35099F0D4B89893A1E23 /* libRNVectorIcons-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
