@@ -17,13 +17,14 @@ import { setGetUrl, setUrl } from "../utils/api";
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: config.color.blackColor,
     height: config.flatlistHeight,
     paddingBottom: 12,
     paddingRight: 12,
     paddingLeft: 12
   },
   itemList: {
-    backgroundColor: "#d0d0d0",
+    backgroundColor: config.color.greyColor,
     height: 100,
     width: "100%",
     flexDirection: "row",
@@ -56,6 +57,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  restaurantTextColor: {
+    color: config.color.fontColor
   },
   // Floating button
   TouchableOpacityStyle: {
@@ -104,9 +108,13 @@ class DishListScreen extends React.Component {
       <View style={[styles.itemList]}>
         <Image style={styles.restaurantImage} source={{ uri: item.picture }} />
         <View style={styles.restaurantNameGroup}>
-          <Text style={styles.restaurantNameTop}>{item.name}</Text>
+          <Text style={[styles.restaurantNameTop, styles.restaurantTextColor]}>
+            {item.name}
+          </Text>
           <View style={styles.restaurantNameBottom}>
-            <Text>辛さレベル {item.scoville}</Text>
+            <Text style={[styles.restaurantTextColor]}>
+              辛さレベル {item.scoville}
+            </Text>
           </View>
         </View>
       </View>
@@ -150,10 +158,7 @@ class DishListScreen extends React.Component {
             style={styles.TouchableOpacityStyle}
           >
             <Image
-              source={{
-                uri:
-                  "https://aboutreact.com/wp-content/uploads/2018/08/bc72de57b000a7037294b53d34c2cbd1.png"
-              }}
+              source={require("../../assets/images/floating.png")}
               style={styles.FloatingButtonStyle}
             />
           </TouchableOpacity>

@@ -1,12 +1,13 @@
 import React from "react";
-import { Button, Image, StyleSheet, Text, View } from "react-native";
+import { default as Alert, Image, StyleSheet, Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { connect } from "react-redux";
 import { restaurantSelect as restaurantSelectAction } from "../actions/restaurant";
 import axios from "axios";
-import { setGetUrl, setPostUrl } from "../utils/api";
+import { setPostUrl } from "../utils/api";
 import { ScovilleButton } from "../components/scovilleButton";
 import DeviceInfo from "react-native-device-info";
+import config from "../constants/config";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject
   },
   totalFooter: {
-    backgroundColor: "#d0d0d0",
+    backgroundColor: config.color.greyColor,
     height: 150,
     width: "100%",
     flexDirection: "row",
@@ -54,6 +55,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  restaurantTextColor: {
+    color: config.color.fontColor
   }
 });
 
@@ -94,9 +98,13 @@ class MapScreen extends React.Component {
           source={{ uri: restaurant.picture }}
         />
         <View style={styles.restaurantNameGroup}>
-          <Text style={styles.restaurantNameTop}>{restaurant.name}</Text>
+          <Text style={[styles.restaurantNameTop, styles.restaurantTextColor]}>
+            {restaurant.name}
+          </Text>
           <View style={styles.restaurantNameBottom}>
-            <Text>{restaurant.averageScoville.toString()}</Text>
+            <Text style={styles.restaurantTextColor}>
+              {restaurant.averageScoville.toString()}
+            </Text>
           </View>
           <ScovilleButton
             text="GO"
@@ -140,7 +148,7 @@ class MapScreen extends React.Component {
           onPress={async event => {
             const isSimulator = DeviceInfo.isEmulator();
             const latitude = isSimulator
-              ? 38.271965
+              ? 38.27196533
               : event.nativeEvent.coordinate.latitude;
             const longitude = isSimulator
               ? 140.871116
@@ -158,15 +166,31 @@ class MapScreen extends React.Component {
               latitude,
               longitude
             };
-            const data = (await axios.post(url, param)).data;
-
-            console.log(data);
-            restaurantSelect({
-              key: data.key,
-              name: data.name,
-              picture: data.picture,
-              averageScoville: data.averageScoville || 0
-            });
+            try {
+              const data = (await axios.post(url, param)).data;
+              if (data) {
+                restaurantSelect({
+                  key: data.key,
+                  name: data.name,
+                  picture: data.picture,
+                  averageScoville: data.averageScoville || 0
+                });
+              } else {
+                Alert.alert(
+                  "検索結果",
+                  "近くに登録されているお店がありません。",
+                  [{ text: "OK", onPress: () => console.log("") }],
+                  { cancelable: false }
+                );
+              }
+            } catch (error) {
+              Alert.alert(
+                "検索結果",
+                "近くに登録されているお店がありません。",
+                [{ text: "OK", onPress: () => console.log("") }],
+                { cancelable: false }
+              );
+            }
           }}
         >
           <Marker

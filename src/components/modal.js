@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   h2: {
-    color: "#3C3C3C",
+    color: config.color.fontColor,
     fontSize: 20,
     fontFamily: "NotoSansCJKjp-Regular"
   },
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     elevation: 0
   },
   container: {
+    backgroundColor: config.color.greyColor,
     justifyContent: "center"
   }
 });
@@ -44,7 +45,7 @@ export const ModalPage = () => {
         <Text style={[styles.h2, styles.marginBottom]}>送信中です</Text>
       </View>
       <View>
-        <ActivityIndicator size="large" color="#FFA500" />
+        <ActivityIndicator size="large" color="#F4A626" />
       </View>
     </View>
   );

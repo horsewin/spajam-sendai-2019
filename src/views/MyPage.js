@@ -12,6 +12,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { updateMyDishList as updateMyDishListAction } from "../actions/myDishes";
 import { setGetUrl } from "../utils/api";
+import config from "../constants/config";
 
 const styles = StyleSheet.create({
   container: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F5FCFF",
+    backgroundColor: config.color.greyColor,
     paddingRight: 12,
     paddingLeft: 12
   },
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     color: "#3C3C3C"
   },
   userInformationArea: {
-    backgroundColor: "#F5FCFF",
+    backgroundColor: config.color.greyColor,
     height: 300,
     width: "100%",
     flexDirection: "row",
@@ -59,12 +60,18 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center"
   },
+  restaurantTextColor: {
+    color: config.color.fontColor
+  },
   restaurantNameBottom: {
     flex: 1,
     fontSize: 20,
     textAlign: "center",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  marginTop: {
+    marginTop: 12
   }
 });
 
@@ -97,10 +104,16 @@ class MyPageScreen extends React.Component {
     return (
       <View style={styles.historyInformationArea}>
         <View style={styles.restaurantNameGroup}>
-          <Text style={styles.restaurantNameTop}>{item.restaurantName}</Text>
-          <Text style={styles.restaurantNameTop}>{item.dish}</Text>
+          <Text style={[styles.restaurantNameTop, styles.restaurantTextColor]}>
+            {item.restaurantName}
+          </Text>
+          <Text style={[styles.restaurantNameTop, styles.restaurantTextColor]}>
+            {item.dish}
+          </Text>
           <View style={styles.restaurantNameBottom}>
-            <Text>辛さレベル {item.scoville}</Text>
+            <Text style={[styles.restaurantTextColor]}>
+              辛さレベル {item.scoville}
+            </Text>
           </View>
         </View>
       </View>
@@ -114,7 +127,15 @@ class MyPageScreen extends React.Component {
 
     const data = myDishes ? (
       <View>
-        <Text style={styles.historyTitleLabel}>・辛さ履歴</Text>
+        <Text
+          style={[
+            styles.historyTitleLabel,
+            styles.restaurantTextColor,
+            styles.marginTop
+          ]}
+        >
+          ・辛さ履歴
+        </Text>
         <FlatList
           keyExtractor={keyExtractor}
           style={styles.containerFlatListMarginBottom}
@@ -141,10 +162,14 @@ class MyPageScreen extends React.Component {
             }}
           />
           <View style={styles.restaurantNameGroup}>
-            <Text style={styles.restaurantNameTop}>PUAさん</Text>
+            <Text
+              style={[styles.restaurantNameTop, styles.restaurantTextColor]}
+            >
+              PUAさん
+            </Text>
             <View style={styles.restaurantNameBottom}>
-              <Text>Scovilleレベル</Text>
-              <Text>{myScoville}</Text>
+              <Text style={[styles.restaurantTextColor]}>Scovilleレベル</Text>
+              <Text style={[styles.restaurantTextColor]}>{myScoville}</Text>
             </View>
           </View>
         </View>

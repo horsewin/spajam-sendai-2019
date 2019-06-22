@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "react-navigation";
 // import { StyleSheet } from "react-native";
 import { MainNavigator } from "./main-navigator";
 import { UserNavigator } from "./user-navigator";
+import config from "../constants/config";
 //
 // const styles = StyleSheet.create({
 //   navButton: {
@@ -47,6 +48,12 @@ const AppNavigator = createBottomTabNavigator(
     }
   },
   {
+    tabBarOptions: {
+      activeTintColor: config.color.primaryColor,
+      tabStyle: {
+        backgroundColor: config.color.blackColor
+      }
+    },
     tabBarPosition: "bottom",
     lazy: false
   }

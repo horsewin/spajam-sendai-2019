@@ -1,6 +1,7 @@
 import { Button } from "native-base";
 import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import config from "../constants/config";
 
 // interface props {
 //   disabled?: boolean;
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     height: 44
   },
   buttonText: {
-    color: "#fff",
+    color: config.color.fontColor,
     fontSize: 14,
     fontFamily: "NotoSansCJKjp-Medium",
     textAlign: "center"
@@ -29,12 +30,12 @@ const styles = StyleSheet.create({
     color: "#FFF"
   },
   buttonPrimaryDisabled: {
-    backgroundColor: "rgba(58, 135, 96, 0.3)",
-    borderColor: "rgba(58, 135, 96, 0.3)",
+    backgroundColor: "rgba(244, 166, 38, 0.3)",
+    borderColor: "rgba(244, 166, 38, 0.3)",
     elevation: 0
   },
   buttonPrimaryIdle: {
-    backgroundColor: "#3A8760",
+    backgroundColor: config.color.primaryColor,
     elevation: 0
   }
 });
