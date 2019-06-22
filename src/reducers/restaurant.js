@@ -1,9 +1,10 @@
 import * as types from "../actions/actionsTypes";
 
 const initialState = {
+  key: "",
   name: "",
-  scoville: 0,
-  img: null
+  picture: null,
+  averageScoville: 0
 };
 
 export function reducer(state = initialState, action) {

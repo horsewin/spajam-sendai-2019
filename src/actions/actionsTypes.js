@@ -5,6 +5,11 @@ export const counter = {
 export const restaurant = {
   UPDATE: "RESTAURANT-UPDATE"
 };
+
+export const dishes = {
+  UPDATE: "DISHES-UPDATE"
+};
+
 //
 // const REQUEST = 'REQUEST';
 // const SUCCESS = 'SUCCESS';

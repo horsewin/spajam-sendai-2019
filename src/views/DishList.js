@@ -8,8 +8,9 @@ import {
 } from "react-native";
 import React from "react";
 import { connect } from "react-redux";
-// import axios from "axios";
+import axios from "axios";
 import { sleep } from "../utils/sleep";
+import { getDishList as getDishListAction } from "../actions/dishes";
 
 const styles = StyleSheet.create({
   container: {
@@ -21,11 +22,11 @@ const styles = StyleSheet.create({
   },
   itemList: {
     backgroundColor: "#d0d0d0",
-    height: 150,
+    height: 100,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 12,
+    marginTop: 24,
     padding: 24,
     alignItems: "center",
     elevation: 0
@@ -37,22 +38,21 @@ const styles = StyleSheet.create({
   },
   restaurantNameGroup: {
     flex: 1,
-    marginTop: 24,
+    marginTop: 12,
     paddingRight: 12,
     paddingLeft: 12
   },
   restaurantNameTop: {
-    flex: 1,
-    fontSize: 20,
-    textAlign: "center"
+    fontSize: 16
   },
   restaurantNameBottom: {
-    flex: 1,
-    fontSize: 20,
+    fontSize: 12,
+    paddingTop: 12,
     textAlign: "center",
     flexDirection: "row",
     justifyContent: "space-between"
   },
+  // Floating button
   TouchableOpacityStyle: {
     position: "absolute",
     width: 50,
@@ -72,54 +72,26 @@ const styles = StyleSheet.create({
 class DishListScreen extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      dishList: null
-    };
   }
 
   async componentDidMount() {
-    // TODO 料理一覧を取得するAPI
-    // const res = await axios.post(
-    //   "https://us-central1-spajam2019-sendai.cloudfunctions.net/sampleApi",
-    //   {
-    //     name: "Arumon"
-    //   },
-    //   {
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     }
-    //   }
-    // );
-    // TODO APIにしたら下の行は消す
-    await sleep(3000);
+    const { restaurant, getDishList } = this.props;
+    const url =
+      "https://us-central1-spajam2019-sendai.cloudfunctions.net/getMenu?";
+    const param = `key=${restaurant.key}`;
+    const dishList = (await axios.get(url + param)).data;
 
-    const dishList = [
-      {
-        name: "料理名1",
-        img:
-          "https://tblg.k-img.com/restaurant/images/Rvw/80296/640x640_rect_80296194.jpg",
-        scoville: 8
-      }
-    ];
-    const tmpDish = {
-      name: "料理名",
-      img:
-        "https://tblg.k-img.com/restaurant/images/Rvw/80296/640x640_rect_80296194.jpg",
-      scoville: 5
-    };
+    getDishList(dishList);
 
-    dishList.push(tmpDish);
     this.setState({
       dishList
     });
   }
 
   tokenListItem = ({ item }) => {
-    const { navigation } = this.props;
     return (
       <View style={[styles.itemList]}>
-        <Image style={styles.restaurantImage} source={{ uri: item.img }} />
+        <Image style={styles.restaurantImage} source={{ uri: item.picture }} />
         <View style={styles.restaurantNameGroup}>
           <Text style={styles.restaurantNameTop}>{item.name}</Text>
           <View style={styles.restaurantNameBottom}>
@@ -130,20 +102,24 @@ class DishListScreen extends React.Component {
     );
   };
 
+  /**
+   *
+   * @return {*}
+   */
   render() {
-    const { dishList } = this.state;
+    const { dishes } = this.props;
     const keyExtractor = (item, id) => id.toString();
 
-    const data = (
+    const data = dishes ? (
       <FlatList
         keyExtractor={keyExtractor}
         contentContainerStyle={styles.container}
-        data={dishList}
+        data={dishes}
         renderItem={this.tokenListItem}
         // refreshControl={props.refreshControl}
         // onEndReached={props.onEndReachedAction}
       />
-    );
+    ) : null;
 
     return (
       <View style={styles.container}>
@@ -167,10 +143,15 @@ class DishListScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  restaurant: state.restaurant
+  restaurant: state.restaurant,
+  dishes: state.dishes
 });
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = dispatch => ({
+  getDishList: values => {
+    dispatch(getDishListAction(values));
+  }
+});
 
 export default connect(
   mapStateToProps,

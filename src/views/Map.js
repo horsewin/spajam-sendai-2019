@@ -71,7 +71,6 @@ class MapScreen extends React.Component {
     // eslint-disable-next-line no-undef
     navigator.geolocation.getCurrentPosition(
       position => {
-        console.log(position);
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
@@ -89,12 +88,12 @@ class MapScreen extends React.Component {
       <View style={[styles.totalFooter, styles.footerContainer]}>
         <Image
           style={styles.restaurantImage}
-          source={{ uri: restaurant.img }}
+          source={{ uri: restaurant.picture }}
         />
         <View style={styles.restaurantNameGroup}>
           <Text style={styles.restaurantNameTop}>{restaurant.name}</Text>
           <View style={styles.restaurantNameBottom}>
-            <Text>{restaurant.scoville}</Text>
+            <Text>{restaurant.averageScoville.toString()}</Text>
             <Button
               title="OK"
               onPress={() =>
@@ -118,7 +117,7 @@ class MapScreen extends React.Component {
     } = this.state;
 
     const footer =
-      markerLatitude && restaurant.img ? this.createFooter() : null;
+      markerLatitude && restaurant.picture ? this.createFooter() : null;
     return (
       <View style={styles.container}>
         <MapView
@@ -135,23 +134,15 @@ class MapScreen extends React.Component {
               markerLongitude: event.nativeEvent.coordinate.longitude
             });
 
-            // TODO APIたたいてと店名もらう
             const data = (await axios.get(
               "https://us-central1-spajam2019-sendai.cloudfunctions.net/getRestaurant"
             )).data;
-            console.log(data);
-
-            // const response = {
-            //   name: "一蘭",
-            //   scoville: 3,
-            //   img:
-            //     "https://tblg.k-img.com/restaurant/images/Rvw/80296/640x640_rect_80296194.jpg"
-            // };
 
             restaurantSelect({
+              key: data.key,
               name: data.name,
-              scoville: data.scoville || 0,
-              img: data.picture
+              picture: data.picture,
+              averageScoville: data.averageScoville || 0
             });
           }}
         >
