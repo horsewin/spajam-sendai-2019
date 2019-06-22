@@ -1,4 +1,11 @@
-import { Button, FlatList, Image, StyleSheet, Text, View } from "react-native";
+import {
+  TouchableOpacity,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import React from "react";
 import { connect } from "react-redux";
 // import axios from "axios";
@@ -6,6 +13,7 @@ import { sleep } from "../utils/sleep";
 
 const styles = StyleSheet.create({
   container: {
+    height: 620,
     paddingTop: 24,
     paddingBottom: 24,
     paddingRight: 12,
@@ -44,6 +52,20 @@ const styles = StyleSheet.create({
     textAlign: "center",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  TouchableOpacityStyle: {
+    position: "absolute",
+    width: 50,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    right: 30,
+    bottom: 30
+  },
+  FloatingButtonStyle: {
+    resizeMode: "contain",
+    width: 64,
+    height: 64
   }
 });
 
@@ -101,8 +123,7 @@ class DishListScreen extends React.Component {
         <View style={styles.restaurantNameGroup}>
           <Text style={styles.restaurantNameTop}>{item.name}</Text>
           <View style={styles.restaurantNameBottom}>
-            <Text>{item.scoville}</Text>
-            <Button title="OK" onPress={() => console.log("")} />
+            <Text>辛さレベル {item.scoville}</Text>
           </View>
         </View>
       </View>
@@ -124,7 +145,24 @@ class DishListScreen extends React.Component {
       />
     );
 
-    return <View style={styles.container}>{data}</View>;
+    return (
+      <View style={styles.container}>
+        {data}
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={null}
+          style={styles.TouchableOpacityStyle}
+        >
+          <Image
+            source={{
+              uri:
+                "https://aboutreact.com/wp-content/uploads/2018/08/bc72de57b000a7037294b53d34c2cbd1.png"
+            }}
+            style={styles.FloatingButtonStyle}
+          />
+        </TouchableOpacity>
+      </View>
+    );
   }
 }
 
