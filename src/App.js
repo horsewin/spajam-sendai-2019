@@ -1,12 +1,27 @@
 import React from "react";
-import { createAppContainer } from "react-navigation";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { Provider } from "react-redux";
 import SplashScreen from "react-native-splash-screen";
+import S from "./views/Splash";
 import configureStore from "./lib/store";
 import AppNavigator from "./navigators/app-navigator";
 
 export const store = configureStore();
-const Navigation = createAppContainer(AppNavigator);
+
+const switchNavigation = createSwitchNavigator(
+  {
+    Splash: {
+      screen: S
+    },
+    App: {
+      screen: AppNavigator
+    }
+  },
+  {
+    initialRouteName: "Splash"
+  }
+);
+const Navigation = createAppContainer(switchNavigation);
 
 export default class App extends React.Component {
   componentDidMount() {

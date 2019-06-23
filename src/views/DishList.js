@@ -14,7 +14,7 @@ import { updateDishList as updateDishListAction } from "../actions/dishes";
 import config from "../constants/config";
 import { setGetUrl } from "../utils/api";
 
-console.log('hello');
+console.log("hello");
 console.log(config);
 
 const styles = StyleSheet.create({
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   FloatingButtonStyle: {
     resizeMode: "contain",
