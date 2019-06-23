@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
   restaurantImage: {
     flex: 1,
     width: 200,
-    height: 200
+    height: 200,
+    resizeMode: "contain"
   },
   restaurantNameGroup: {
     flex: 1,
@@ -180,10 +181,7 @@ class MyPageScreen extends React.Component {
         <View style={[styles.userInformationArea, { flex: 2 }]}>
           <Image
             style={styles.restaurantImage}
-            source={{
-              uri:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZX90fH9ql-PY-S6ogOJuLGTOshZfghWv24qwAlC6IN-e4sqy6"
-            }}
+            source={require("../../assets/images/yoshitake.png")}
           />
           <View style={styles.restaurantNameGroup}>
             <Text

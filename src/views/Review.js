@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
   textFont: {
     fontSize: 30,
     fontFamily: "NotoSansCJKjp-Regular",
-    justifyContent: "center",
     color: config.color.primaryColor
   },
   restaurantNameBottom: {
@@ -160,7 +159,7 @@ class ReviewScreen extends React.Component {
     };
 
     // レビュー情報の登録
-    // await axios.post(url, body);
+    await axios.post(url, body);
     await sleep(1500);
 
     const param = `udid=${udid}`;
@@ -252,7 +251,9 @@ class ReviewScreen extends React.Component {
                 source={require("../../assets/images/chili-pepper2.png")}
               />
             </View>
-            <Text style={styles.textFont}>{scoville}</Text>
+            <View style={{ flexDirection: "row", justifyContent: "center" }}>
+              <Text style={styles.textFont}>{scoville}</Text>
+            </View>
           </View>
           <ScovilleButton text={"OK"} onPress={this.postReviewData} />
         </View>
