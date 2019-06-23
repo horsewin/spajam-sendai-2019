@@ -4,17 +4,18 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "ios": "react-native run-ios --simulator \"iPhone 8\"",
-    "dro": "react-native run-android",
+    "ios": "patch-package && react-native run-ios --simulator \"iPhone 8\"",
+    "dro": "patch-package && react-native run-android",
     "lint": "./node_modules/eslint/bin/eslint.js --fix ./src/**/*.js ",
     "test": "jest",
-    "release": "cd ios && bundle exec fastlane pua",
+    "release": "patch-package && cd ios && bundle exec fastlane pua",
     "clean": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf /tmp/haste-map-react-native-packager-* && rm -rf ios/build && rm -rf android/build"
   },
   "dependencies": {
     "@react-native-community/slider": "^1.1.4",
     "axios": "^0.19.0",
     "native-base": "^2.12.1",
+    "patch-package": "^6.1.2",
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-device-info": "^2.1.3",

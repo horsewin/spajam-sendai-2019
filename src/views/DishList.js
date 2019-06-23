@@ -16,20 +16,19 @@ import { setGetUrl } from "../utils/api";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: config.color.blackColor,
+    backgroundColor: config.color.whiteColor,
     height: config.flatlistHeight,
     paddingBottom: 12,
     paddingRight: 12,
     paddingLeft: 12
   },
   itemList: {
-    backgroundColor: config.color.greyColor,
+    backgroundColor: config.color.blackColor,
     height: 100,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 24,
-    padding: 24,
+    marginTop: 10,
     alignItems: "center",
     elevation: 0
   },
@@ -45,13 +44,13 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 12,
     paddingRight: 12,
-    paddingLeft: 1
+    paddingLeft: 12
   },
   restaurantNameTop: {
-    fontSize: 16
+    fontSize: 14
   },
   restaurantNameBottom: {
-    fontSize: 12,
+    fontSize: 20,
     paddingTop: 12,
     textAlign: "center",
     flexDirection: "row",
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     right: config.floatingButtonMargin,
-    bottom: config.tabHeight - config.floatingButtonMargin
+    bottom: config.tabHeight - config.floatingButtonMargin * 4
   },
   FloatingButtonStyle: {
     resizeMode: "contain",
@@ -84,6 +83,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     padding: 10
+  },
+  restaurantPrimaryColor: {
+    color: config.color.primaryColor
   }
 });
 
@@ -111,8 +113,16 @@ class DishListScreen extends React.Component {
             {item.name}
           </Text>
           <View style={styles.restaurantNameBottom}>
-            <Text style={[styles.restaurantTextColor]}>
-              辛さレベル {item.scoville}
+            <Text style={[styles.restaurantPrimaryColor]}>
+              {`${item.scoville.toString()} `}
+              <Text
+                style={[
+                  styles.restaurantPrimaryColor,
+                  {
+                    fontSize: 14
+                  }
+                ]}
+              >{`[SHU]`}</Text>
             </Text>
           </View>
         </View>

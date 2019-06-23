@@ -1,0 +1,30 @@
+diff --git a/node_modules/react-native-material-dropdown/src/components/dropdown/index.js b/node_modules/react-native-material-dropdown/src/components/dropdown/index.js
+index b1e65a1..29dbebb 100644
+--- a/node_modules/react-native-material-dropdown/src/components/dropdown/index.js
++++ b/node_modules/react-native-material-dropdown/src/components/dropdown/index.js
+@@ -60,9 +60,9 @@ export default class Dropdown extends PureComponent {
+ 
+     fontSize: 16,
+ 
+-    textColor: 'rgba(0, 0, 0, .87)',
+-    itemColor: 'rgba(0, 0, 0, .54)',
+-    baseColor: 'rgba(0, 0, 0, .38)',
++    textColor: '#FFFFFF',
++    itemColor: 'rgba(255, 0, 0, .54)',
++    baseColor: 'rgba(255, 255, 255, .54)',
+ 
+     itemCount: 4,
+     itemPadding: 8,
+diff --git a/node_modules/react-native-material-dropdown/src/components/dropdown/styles.js b/node_modules/react-native-material-dropdown/src/components/dropdown/styles.js
+index 39031e0..acf0e86 100644
+--- a/node_modules/react-native-material-dropdown/src/components/dropdown/styles.js
++++ b/node_modules/react-native-material-dropdown/src/components/dropdown/styles.js
+@@ -32,7 +32,7 @@ export default StyleSheet.create({
+   },
+ 
+   picker: {
+-    backgroundColor: 'rgba(255, 255, 255, 1.0)',
++    backgroundColor: '#202020',
+     borderRadius: 2,
+ 
+     position: 'absolute',

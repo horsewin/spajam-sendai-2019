@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   userInformationArea: {
     backgroundColor: config.color.greyColor,
-    height: 300,
+    height: 200,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -166,7 +166,7 @@ class MyPageScreen extends React.Component {
             <Text
               style={[styles.restaurantNameTop, styles.restaurantTextColor]}
             >
-              Pickup Artist　さん
+              Pickup Artists
             </Text>
             <View style={styles.restaurantNameBottom}>
               <Text style={[styles.restaurantTextColor]}>Scoville Lv.</Text>

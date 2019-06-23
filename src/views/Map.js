@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingTop: 0,
-    paddingBottom: 0,
+    paddingBottom: 10,
     alignItems: "center",
     elevation: 0
   },
@@ -46,18 +46,25 @@ const styles = StyleSheet.create({
   },
   restaurantNameTop: {
     flex: 1,
-    fontSize: 20,
-    textAlign: "center"
+    fontSize: 18
+  },
+  scovilleValueBottom: {
+    fontSize: 26,
+    textAlign: "center",
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   restaurantNameBottom: {
-    flex: 1,
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "center",
     flexDirection: "row",
     justifyContent: "space-between"
   },
   restaurantTextColor: {
     color: config.color.fontColor
+  },
+  restaurantPrimaryColor: {
+    color: config.color.primaryColor
   }
 });
 
@@ -102,8 +109,21 @@ class MapScreen extends React.Component {
             {restaurant.name}
           </Text>
           <View style={styles.restaurantNameBottom}>
-            <Text style={styles.restaurantTextColor}>
-              {restaurant.averageScoville.toString()}
+            <Text
+              style={[
+                styles.scovilleValueBottom,
+                styles.restaurantPrimaryColor
+              ]}
+            >
+              {`${restaurant.averageScoville.toString()} `}
+              <Text
+                style={[
+                  styles.restaurantPrimaryColor,
+                  {
+                    fontSize: 14
+                  }
+                ]}
+              >{`[SHU]`}</Text>
             </Text>
           </View>
           <ScovilleButton
@@ -133,12 +153,6 @@ class MapScreen extends React.Component {
       <View style={styles.container}>
         <MapView
           style={styles.map}
-          // initialRegion={{
-          //   latitude: 38.271965,
-          //   longitude: 140.871116,
-          //   latitudeDelta: 0.015,
-          //   longitudeDelta: 0.0121
-          // }}
           region={{
             latitude,
             longitude,

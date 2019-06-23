@@ -8,6 +8,7 @@ export default {
   },
   color: {
     primaryColor: "#F4A626",
+    whiteColor: "#FFFFFF",
     blackColor: "#000000",
     greyColor: "#202020",
     fontColor: "#F0F0F0",
