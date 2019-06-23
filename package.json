@@ -12,6 +12,7 @@
     "clean": "watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf /tmp/haste-map-react-native-packager-* && rm -rf ios/build && rm -rf android/build"
   },
   "dependencies": {
+    "@react-native-community/slider": "^1.1.4",
     "axios": "^0.19.0",
     "native-base": "^2.12.1",
     "react": "16.8.3",
