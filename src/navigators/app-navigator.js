@@ -56,7 +56,6 @@ const AppNavigator = createBottomTabNavigator(
         let IconComponent = Ionicons;
         let iconName;
         if (routeName === "Main") {
-          // iconName = `ios-nutrition${focused ? "" : "-outline"}`;
           iconName = `ios-nutrition`;
         } else if (routeName === "User") {
           iconName = `ios-contact`;
@@ -67,7 +66,8 @@ const AppNavigator = createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: config.color.primaryColor,
       tabStyle: {
-        backgroundColor: config.color.blackColor
+        backgroundColor: config.color.blackColor,
+        borderTopWidth: 0
       }
     },
     tabBarPosition: "bottom",

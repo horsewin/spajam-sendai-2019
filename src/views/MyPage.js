@@ -90,11 +90,12 @@ class MyPageScreen extends React.Component {
     const param = `udid=${udid}`;
     const getHistoryUrl = setGetUrl("/getHistory", param);
     const myDishList = (await axios.get(getHistoryUrl)).data;
+
     updateMyDishList(myDishList.dishes);
 
     const myScovilleUrl = setGetUrl("/getPersonalScoville", param);
     const myScoville = (await axios.get(myScovilleUrl)).data.scoville;
-    console.log(myScoville);
+
     this.setState({
       myScoville
     });
@@ -165,10 +166,10 @@ class MyPageScreen extends React.Component {
             <Text
               style={[styles.restaurantNameTop, styles.restaurantTextColor]}
             >
-              PUAさん
+              Pickup Artist　さん
             </Text>
             <View style={styles.restaurantNameBottom}>
-              <Text style={[styles.restaurantTextColor]}>Scovilleレベル</Text>
+              <Text style={[styles.restaurantTextColor]}>Scoville Lv.</Text>
               <Text style={[styles.restaurantTextColor]}>{myScoville}</Text>
             </View>
           </View>
