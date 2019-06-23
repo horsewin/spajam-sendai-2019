@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -66,6 +65,7 @@
 		E03FE728E39949A9B50CF11B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2591793DF1D45168B091CEB /* EvilIcons.ttf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		9ED0593FE2654008B0B93C15 /* libRNCSlider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF32A5AD1F714A639EB296F3 /* libRNCSlider.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -472,6 +472,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		ED43EC0A43F549DBB183F782 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		7F9EDD06EFD04706A55CA851 /* RNCSlider.xcodeproj */ = {isa = PBXFileReference; name = "RNCSlider.xcodeproj"; path = "../node_modules/@react-native-community/slider/ios/RNCSlider.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		AF32A5AD1F714A639EB296F3 /* libRNCSlider.a */ = {isa = PBXFileReference; name = "libRNCSlider.a"; path = "libRNCSlider.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +502,7 @@
 				2F4126C37A3443DF869EA2ED /* libSplashScreen.a in Frameworks */,
 				9DD23A7CA98F428FA733ECCD /* libRNDeviceInfo.a in Frameworks */,
 				4B1620B8E6BE4F1FAF025FB1 /* libRNVectorIcons.a in Frameworks */,
+				9ED0593FE2654008B0B93C15 /* libRNCSlider.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +522,7 @@
 				AD3051745ABA473B97E31F54 /* libRNGestureHandler-tvOS.a in Frameworks */,
 				0B0DCF342D024A54BE0BB016 /* libRNDeviceInfo-tvOS.a in Frameworks */,
 				D389DC4B534F4ADDA6C0646A /* libRNVectorIcons-tvOS.a in Frameworks */,
+				BB435CACBAD54457B38A0991 /* libRNSVG-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +722,7 @@
 				C94BB3BDCF6F42869A66C4AB /* SplashScreen.xcodeproj */,
 				32954FA157E7431198B612EE /* RNDeviceInfo.xcodeproj */,
 				A9072B8A3FD84909A4D2BD57 /* RNVectorIcons.xcodeproj */,
+				7F9EDD06EFD04706A55CA851 /* RNCSlider.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -795,6 +800,8 @@
 				A1038A4C756D4210AAABB8CE /* libRNDeviceInfo-tvOS.a */,
 				708E17AA3F2E4DF1911C1D61 /* libRNVectorIcons.a */,
 				06039CBC620A4DC59D20EE1A /* libRNVectorIcons-tvOS.a */,
+				D05B7A16CB1E411C839CAB88 /* libRNSVG.a */,
+				B68C7E9A65A84E9896383219 /* libRNSVG-tvOS.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1319,6 +1326,13 @@
 			remoteRef = 99D79CA022BEF552001BC189 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		99D79D1422BEFA5F001BC189 /* libRNSVG-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNSVG-tvOS.a";
+			remoteRef = 99D79D1322BEFA5F001BC189 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		99E79B9022B7D6D9001A3F68 /* libAirMaps.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1472,12 +1486,12 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1510,12 +1524,12 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				INFOPLIST_FILE = PUA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/PUA\"",
 					"\"$(SRCROOT)/PUA\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1552,6 +1566,7 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1594,6 +1609,7 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/@react-native-community/slider/ios",
 				);
 				INFOPLIST_FILE = "PUA-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

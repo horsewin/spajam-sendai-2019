@@ -19,6 +19,7 @@ import { updateMyDishList as updateMyDishListAction } from "../actions/myDishes"
 import { setGetUrl, setPostUrl } from "../utils/api";
 import { ScovilleButton } from "../components/scovilleButton";
 import Modal from "react-native-modal";
+import Slider from "@react-native-community/slider";
 
 const styles = StyleSheet.create({
   container: {
@@ -54,6 +55,12 @@ const styles = StyleSheet.create({
   },
   marginBottom: {
     marginBottom: 36
+  },
+  textFont: {
+    fontSize: 30,
+    fontFamily: "NotoSansCJKjp-Regular",
+    justifyContent: "center",
+    color: config.color.primaryColor
   }
 });
 
@@ -67,6 +74,7 @@ class ReviewScreen extends React.Component {
       source: null,
       dish: null,
       udid: null,
+      scoville: 0,
       modalVisible: false,
       error: false
     };
@@ -105,7 +113,7 @@ class ReviewScreen extends React.Component {
 
   postReviewData = async () => {
     const { navigation, restaurant, updateMyDishList } = this.props;
-    const { dish, udid } = this.state;
+    const { dish, udid, scoville } = this.state;
 
     if (!dish) {
       this.setState({
@@ -123,7 +131,7 @@ class ReviewScreen extends React.Component {
       udid,
       dish,
       restaurantName: restaurant.name,
-      scoville: 1
+      scoville
     };
 
     // レビュー情報の登録
@@ -151,7 +159,7 @@ class ReviewScreen extends React.Component {
 
   render() {
     const { dishes } = this.props;
-    const { dish, modalVisible, error } = this.state;
+    const { dish, scoville, modalVisible, error } = this.state;
     let data = [];
     for (const dish of dishes) {
       data.push({ value: dish.name });
@@ -188,6 +196,24 @@ class ReviewScreen extends React.Component {
                 商品を選択するか写真を撮影してください。
               </Text>
             ) : null}
+            <Slider
+              style={{ width: 200, height: 80, marginVertical: 10 }}
+              value={scoville}
+              onValueChange={scoville =>
+                this.setState({
+                  scoville
+                })
+              }
+              minimumValue={0}
+              maximumValue={30000}
+              step={1}
+              thumbImage={require("../../assets/images/green-pepper.png")}
+              // minimumTrackImage={require("../../assets/images/green-pepper.png")}
+              // maximumTrackImage={require("../../assets/images/green-pepper.png")}
+              minimumTrackTintColor="#FFFFFF"
+              maximumTrackTintColor="#000000"
+            />
+            <Text style={styles.textFont}>{scoville}</Text>
           </View>
           <ScovilleButton text={"OK"} onPress={this.postReviewData} />
         </View>
