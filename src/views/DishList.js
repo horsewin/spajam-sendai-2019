@@ -14,6 +14,9 @@ import { updateDishList as updateDishListAction } from "../actions/dishes";
 import config from "../constants/config";
 import { setGetUrl } from "../utils/api";
 
+console.log('hello');
+console.log(config);
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: config.color.whiteColor,
@@ -60,14 +63,16 @@ const styles = StyleSheet.create({
     color: config.color.fontColor
   },
   // Floating button
-  TouchableOpacityStyle: {
+  TouchableOpacityViewStyle: {
     position: "absolute",
+    right: config.floatingButtonMargin + 12,
+    bottom: config.floatingButtonMargin + 56
+  },
+  TouchableOpacityStyle: {
     width: 50,
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    right: config.floatingButtonMargin,
-    bottom: config.tabHeight - config.floatingButtonMargin * 4
   },
   FloatingButtonStyle: {
     resizeMode: "contain",
@@ -161,7 +166,7 @@ class DishListScreen extends React.Component {
     return (
       <View style={styles.container}>
         {data}
-        <View>
+        <View style={styles.TouchableOpacityViewStyle}>
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={() => {
