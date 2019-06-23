@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingTop: 0,
     paddingBottom: 0,
-    alignItems: "center",
     elevation: 0
   },
   containerFlatListMarginBottom: {
+    flex: 1,
     marginBottom: 48
   },
   restaurantImage: {
@@ -57,8 +57,7 @@ const styles = StyleSheet.create({
   },
   restaurantNameTop: {
     flex: 1,
-    fontSize: 20,
-    textAlign: "center"
+    fontSize: 20
   },
   restaurantTextColor: {
     color: config.color.fontColor
@@ -127,7 +126,7 @@ class MyPageScreen extends React.Component {
     const keyExtractor = (item, id) => id.toString();
 
     const data = myDishes ? (
-      <View>
+      <View style={{ flex: 1 }}>
         <Text
           style={[
             styles.historyTitleLabel,

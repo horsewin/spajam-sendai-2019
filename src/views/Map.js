@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18
   },
+  marginLeft: {
+    marginLeft: 12
+  },
   scovilleValueBottom: {
     fontSize: 26,
     textAlign: "center",
@@ -58,7 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "flex-start"
   },
   restaurantTextColor: {
     color: config.color.fontColor
@@ -109,8 +112,10 @@ class MapScreen extends React.Component {
             {restaurant.name}
           </Text>
           <View style={styles.restaurantNameBottom}>
+            <Image source={require("../../assets/images/chili-pepper2.png")} />
             <Text
               style={[
+                styles.marginLeft,
                 styles.scovilleValueBottom,
                 styles.restaurantPrimaryColor
               ]}

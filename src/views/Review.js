@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   image: {
     width: WIDTH,
     height: 200,
-    resizeMode: "contain",
+    resizeMode: "stretch",
     flexDirection: "row",
     justifyContent: "center"
   },
@@ -218,7 +218,7 @@ class ReviewScreen extends React.Component {
             />
             <View
               style={{
-                marginBottom: 40,
+                marginBottom: 10,
                 flexDirection: "row",
                 justifyContent: "space-between"
               }}
