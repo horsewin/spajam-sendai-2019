@@ -207,7 +207,7 @@ class ReviewScreen extends React.Component {
               minimumValue={0}
               maximumValue={30000}
               step={1}
-              thumbImage={require("../../assets/images/green-pepper.png")}
+              thumbImage={require("../../assets/images/chili-pepper.png")}
               // minimumTrackImage={require("../../assets/images/green-pepper.png")}
               // maximumTrackImage={require("../../assets/images/green-pepper.png")}
               minimumTrackTintColor="#FFFFFF"
