@@ -115,7 +115,7 @@ class MapScreen extends React.Component {
                 styles.restaurantPrimaryColor
               ]}
             >
-              {`${restaurant.averageScoville.toString()} `}
+              {`${restaurant.averageScoville.toLocaleString()} `}
               <Text
                 style={[
                   styles.restaurantPrimaryColor,

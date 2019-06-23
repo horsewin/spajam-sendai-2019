@@ -114,7 +114,7 @@ class DishListScreen extends React.Component {
           </Text>
           <View style={styles.restaurantNameBottom}>
             <Text style={[styles.restaurantPrimaryColor]}>
-              {`${item.scoville.toString().toLocaleString()} `}
+              {`${item.scoville.toLocaleString()} `}
               <Text
                 style={[
                   styles.restaurantPrimaryColor,

@@ -170,7 +170,9 @@ class MyPageScreen extends React.Component {
             </Text>
             <View style={styles.restaurantNameBottom}>
               <Text style={[styles.restaurantTextColor]}>Scoville Lv.</Text>
-              <Text style={[styles.restaurantTextColor]}>{myScoville}</Text>
+              <Text style={[styles.restaurantTextColor]}>
+                {myScoville.toLocaleString()}
+              </Text>
             </View>
           </View>
         </View>

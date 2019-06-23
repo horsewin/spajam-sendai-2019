@@ -21,6 +21,7 @@ import { ScovilleButton } from "../components/scovilleButton";
 import Modal from "react-native-modal";
 import Slider from "@react-native-community/slider";
 
+const WIDTH = 300;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -34,9 +35,11 @@ const styles = StyleSheet.create({
     margin: 10
   },
   image: {
-    width: 200,
+    width: WIDTH,
     height: 200,
-    resizeMode: "contain"
+    resizeMode: "contain",
+    flexDirection: "row",
+    justifyContent: "center"
   },
   errorMessage: {
     fontSize: 12,
@@ -179,7 +182,7 @@ class ReviewScreen extends React.Component {
           <TouchableOpacity onPress={this.uploadImage}>
             {imageComponent}
           </TouchableOpacity>
-          <View style={{ width: 200 }}>
+          <View style={{ width: WIDTH }}>
             <Dropdown
               value={dish || "選択してください"}
               onChangeText={dish => {
@@ -197,7 +200,7 @@ class ReviewScreen extends React.Component {
               </Text>
             ) : null}
             <Slider
-              style={{ width: 200, height: 80, marginVertical: 10 }}
+              style={{ width: WIDTH, height: 40, marginVertical: 10 }}
               value={scoville}
               onValueChange={scoville =>
                 this.setState({
@@ -205,7 +208,7 @@ class ReviewScreen extends React.Component {
                 })
               }
               minimumValue={0}
-              maximumValue={30000}
+              maximumValue={10000}
               step={1}
               thumbImage={require("../../assets/images/chili-pepper.png")}
               // minimumTrackImage={require("../../assets/images/green-pepper.png")}
@@ -213,6 +216,20 @@ class ReviewScreen extends React.Component {
               minimumTrackTintColor="#FFFFFF"
               maximumTrackTintColor="#000000"
             />
+            <View
+              style={{
+                marginBottom: 40,
+                flexDirection: "row",
+                justifyContent: "space-between"
+              }}
+            >
+              <Image source={require("../../assets/images/green-pepper.png")} />
+              <Image source={require("../../assets/images/paprika.png")} />
+              <Image source={require("../../assets/images/tabasco.png")} />
+              <Image
+                source={require("../../assets/images/chili-pepper2.png")}
+              />
+            </View>
             <Text style={styles.textFont}>{scoville}</Text>
           </View>
           <ScovilleButton text={"OK"} onPress={this.postReviewData} />
