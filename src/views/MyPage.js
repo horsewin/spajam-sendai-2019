@@ -62,6 +62,9 @@ const styles = StyleSheet.create({
   restaurantTextColor: {
     color: config.color.fontColor
   },
+  restaurantPrimaryColor: {
+    color: config.color.primaryColor
+  },
   restaurantNameBottom: {
     flex: 1,
     fontSize: 20,
@@ -71,6 +74,12 @@ const styles = StyleSheet.create({
   },
   marginTop: {
     marginTop: 12
+  },
+  scovilleValueBottom: {
+    fontSize: 26,
+    textAlign: "center",
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 });
 
@@ -111,8 +120,23 @@ class MyPageScreen extends React.Component {
             {item.dish}
           </Text>
           <View style={styles.restaurantNameBottom}>
-            <Text style={[styles.restaurantTextColor]}>
-              辛さレベル {item.scoville}
+            <Image source={require("../../assets/images/chili-pepper2.png")} />
+            <Text
+              style={[
+                styles.marginLeft,
+                styles.scovilleValueBottom,
+                styles.restaurantPrimaryColor
+              ]}
+            >
+              {`${item.scoville.toLocaleString()} `}
+              <Text
+                style={[
+                  styles.restaurantPrimaryColor,
+                  {
+                    fontSize: 14
+                  }
+                ]}
+              >{`[SHU]`}</Text>
             </Text>
           </View>
         </View>
@@ -168,9 +192,25 @@ class MyPageScreen extends React.Component {
               Pickup Artists
             </Text>
             <View style={styles.restaurantNameBottom}>
-              <Text style={[styles.restaurantTextColor]}>Scoville Lv.</Text>
-              <Text style={[styles.restaurantTextColor]}>
-                {myScoville.toLocaleString()}
+              <Image
+                source={require("../../assets/images/chili-pepper2.png")}
+              />
+              <Text
+                style={[
+                  styles.marginLeft,
+                  styles.scovilleValueBottom,
+                  styles.restaurantPrimaryColor
+                ]}
+              >
+                {`${myScoville.toLocaleString()} `}
+                <Text
+                  style={[
+                    styles.restaurantPrimaryColor,
+                    {
+                      fontSize: 14
+                    }
+                  ]}
+                >{`[SHU]`}</Text>
               </Text>
             </View>
           </View>

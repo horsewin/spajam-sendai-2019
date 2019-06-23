@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
   restaurantNameBottom: {
     fontSize: 16,
+    marginBottom: 2,
     textAlign: "center",
     flexDirection: "row",
     justifyContent: "flex-start"

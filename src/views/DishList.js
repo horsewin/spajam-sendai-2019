@@ -107,7 +107,10 @@ class DishListScreen extends React.Component {
   tokenListItem = ({ item }) => {
     return (
       <View style={[styles.itemList]}>
-        <Image style={styles.restaurantImage} source={{ uri: item.picture }} />
+        <Image
+          style={styles.restaurantImage}
+          source={{ uri: item.picture, cache: "reload" }}
+        />
         <View style={styles.restaurantNameGroup}>
           <Text style={[styles.restaurantNameTop, styles.restaurantTextColor]}>
             {item.name}

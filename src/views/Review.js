@@ -64,6 +64,28 @@ const styles = StyleSheet.create({
     fontFamily: "NotoSansCJKjp-Regular",
     justifyContent: "center",
     color: config.color.primaryColor
+  },
+  restaurantNameBottom: {
+    fontSize: 16,
+    marginBottom: 2,
+    textAlign: "center",
+    flexDirection: "row",
+    justifyContent: "flex-start"
+  },
+  restaurantTextColor: {
+    color: config.color.fontColor
+  },
+  restaurantPrimaryColor: {
+    color: config.color.primaryColor
+  },
+  marginLeft: {
+    marginLeft: 12
+  },
+  scovilleValueBottom: {
+    fontSize: 26,
+    textAlign: "center",
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 });
 
